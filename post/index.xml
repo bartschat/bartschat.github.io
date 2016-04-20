@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Lars` github/Hugo powered blog</title>
+    <link>http://bartschat.gihub.io/post/</link>
+    <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Apr 2016 19:03:59 +0200</lastBuildDate>
+    <atom:link href="http://bartschat.gihub.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to add a RealTimeClock (DS3231) to your Raspberry Pi powered PirateBox</title>
+      <link>http://bartschat.gihub.io/post/welcome/</link>
+      <pubDate>Wed, 20 Apr 2016 19:03:59 +0200</pubDate>
+      
+      <guid>http://bartschat.gihub.io/post/welcome/</guid>
+      <description>
+
+&lt;h2 id=&#34;history:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;2016-02-09 Version 1.0 including rewrite for Arch Linux
+2016-02-08 DRAFT version created (Lars@alles-am-en.de)&lt;/p&gt;
+
+&lt;h2 id=&#34;license-stuff:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;License stuff&lt;/h2&gt;
+
+&lt;p&gt;This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License. To view a copy of this license,
+visit &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;http://creativecommons.org/licenses/by-sa/4.0/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;intro:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;This tutorial will describe how your Raspberry Pi powered PirateBox can be
+extended with a RealTimeClock module. Adding an RTC improves your PirateBox
+because the Raspberry Pi does not have any clock on board. So everytime
+your Pi reboots you need some method to set an exact time or at least some
+reasonable estimate. When your Raspberry Pi is in any way connected to the
+Internet this is trivial, just setup NTP (network time protocol) and the Pi
+will sync itÂ´s system time to the configured NTP server.
+As a PirateBoxÂ´s purpose is to provide &amp;ldquo;anonymous offline sharing and
+communication&amp;rdquo; a connection to the internet is usually either not wanted
+or not possible. There are some workaraounds that involve the use of
+filesÂ´ last modified dates and stuff to set something of an assumption of
+the current time, but these are all more or less educated guesses. A cheap
+and easy way to deal with this issue is to add a DS3231 RTC to your setup.
+You can get these modules for as low as 2 or 3 US$ from China based retailers
+or for a little more if you want to order at local retailers.
+So, letÂ´s get started and add timekeeping to your PirateBox.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-buy-rtc-module:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 1 - Buy RTC module&lt;/h2&gt;
+
+&lt;p&gt;Acquire a RealTimeClock module with a DS3231 chip at a retailer of your choice.
+DS1307 chips are working fine as well, they just are not as precise as the
+DS3231 modules.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-2-add-i2c-support:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 2 - Add I2C support&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make sure your system is up to date:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        $ sudo pacman -Syu
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install I2C packages:&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;pre&gt;&lt;code&gt;        $ sudo pacman -S i2c-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Activate I2C support in &lt;code&gt;config.txt&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        $ sudo vim /boot/config.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uncomment the following line&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        device_tree_param=i2c_arm=on
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Load necessary modules on boot:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/modules-load.d/raspberrypi.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;make sure at least the following modules are included:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;        snd-bcm2835
+        i2c-bcm2835
+        i2c-dev
+        rtc-ds1307
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;save and power down &lt;code&gt;sudo shutdown -h now&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;step-3-add-rtc-module-onto-gpio-ports:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 3 - Add RTC module onto GPIO ports&lt;/h2&gt;
+
+&lt;p&gt;This one is really easy, just plug the RTC chip onto the correct GPIO ports.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-4-test-and-set-the-new-hardware-clock-module:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 4 - Test and set the new hardware clock module&lt;/h2&gt;
+
+&lt;p&gt;After the Pi is back up check out if the RTC is detected:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo echo ds1307 0x68 &amp;gt; /sys/class/i2c-adapter/i2c-1/new_device
+$ sudo i2cdetect -y 1
+
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- -- 
+    70: -- -- -- -- -- -- -- -- 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now make sure that your current system time is correct (via NTP or just set
+it manually with the &lt;code&gt;date&lt;/code&gt;command).
+Write the current system time to the RTC module&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo hwclock -w
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check if the time was stored correctly on your hardware clock:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo hwclock -r
+Tue Feb  9 17:17:46 2016  .375681 seconds
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;step-5-add-autostart-script-to-systemd:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 5 Add autostart script to systemd&lt;/h2&gt;
+
+&lt;p&gt;The final step is now to automatically initialize the hardware clock module
+and sync the system time to it. This tutorial assumes that you are using
+a systemd based Linux distribution for your Raspberry Pi, e.g. raspbian.
+Non-systemd based distribution require a different setup.
+* Store a script called &lt;code&gt;PirateClock.sh&lt;/code&gt;in &lt;code&gt;/usr/bin&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ sudo vim /usr/bin/PirateClock.sh 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Enter the following code and save the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#! /bin/bash
+echo ds1307 0x68 &amp;gt; /sys/class/i2c-adapter/i2c-1/new_device
+hwclock -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adjust the file permissions on &lt;code&gt;/usr/bin/PirateClock.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo chmod +x /usr/bin/PirateClock.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now we need to create a &amp;ldquo;service&amp;rdquo;-script in the systemd architecture to call our script on every reboot.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vim /lib/systemd/system/PirateClock.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enter the following code and save the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[Unit]
+Description=PirateClock - hwclock initialization and sync
+After=multi-user.target
+
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/PirateClock.sh
+
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adjust the file permissions on &lt;code&gt;/lib/systemd/system/PirateClock.service&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo chmod 644 /lib/systemd/system/PirateClock.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now we need to introduce systemd to the new &amp;ldquo;service&amp;rdquo;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl daemon-reload
+$ sudo systemctl enable PirateClock.service
+Created symlink from /etc/systemd/system/multi-user.target.wants/PirateClock.service 
+to /usr/lib/systemd/system/PirateClock.service.
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;reboot&lt;/code&gt; your PirateBox and check if the script was correctly executed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl status PirateClock.service
+[sudo] password for alarm: 
+* PirateClock.service - PirateClock - hwclock initialization and sync
+   Loaded: loaded (/usr/lib/systemd/system/PirateClock.service; enabled; vendor preset: disabled)
+   Active: inactive (dead) since Tue 2016-02-09 17:34:32 UTC; 49s ago
+  Process: 204 ExecStart=/usr/bin/PirateClock.sh (code=exited, status=0/SUCCESS)
+ Main PID: 204 (code=exited, status=0/SUCCESS)
+
+
+Feb 09 17:22:34 alarmpi systemd[1]: Started PirateClock - hwclock initializ...c.
+Hint: Some lines were ellipsized, use -l to show in full.
+
+
+$ sudo hwclock -r
+Tue Feb  9 17:35:57 2016  .465668 seconds
+$ date 
+Tue Feb  9 17:36:01 UTC 2016
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
