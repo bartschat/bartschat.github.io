@@ -6,8 +6,39 @@
     <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Apr 2016 19:44:52 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 20 Apr 2016 18:03:59 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Welcome to Lars&#39; nerdy blog</title>
+      <link>https://bartschat.github.io/post/welcome/</link>
+      <pubDate>Wed, 20 Apr 2016 18:03:59 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/welcome/</guid>
+      <description>&lt;p&gt;nope, nothing&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Impressum</title>
+      <link>https://bartschat.github.io/post/impressum/</link>
+      <pubDate>Wed, 20 Apr 2016 17:25:37 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/impressum/</guid>
+      <description>&lt;p&gt;&lt;h1&gt;Legal Disclosure&lt;/h1&gt;Information in accordance with section 5 TMG&lt;br/&gt;&lt;br/&gt;Lars Bartschat&lt;br/&gt;&lt;h2&gt;Contact&lt;/h2&gt;Telephone: on request&lt;br/&gt;E-Mail: &lt;a href=&#34;mailto:lars@alles-am-en.de&#34;&gt;lars@alles-am-en.de&lt;/a&gt;&lt;br/&gt;Internetadresse: &lt;a href=&#34;http://www.https://bartschat.github.io&#34; target=&#34;_blank&#34;&gt;&lt;a href=&#34;https://bartschat.github.io&#34;&gt;https://bartschat.github.io&lt;/a&gt;&lt;/a&gt;&lt;br/&gt;&lt;h2&gt;Person responsible for content in accordance with 55 Abs. 2 RStV&lt;/h2&gt;Lars Bartschat&lt;br/&gt;&lt;h2&gt;Disclaimer&lt;/h2&gt;Accountability for content&lt;br/&gt;The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents&amp;rsquo; accuracy, completeness or topicality. According to statutory provisions, we are furthermore responsible for our own content on these web pages. In this context, please note that we are accordingly not obliged to monitor merely the transmitted or saved information of third parties, or investigate circumstances pointing to illegal activity. Our obligations to remove or block the use of information under generally applicable laws remain unaffected by this as per &amp;sect;&amp;sect; 8 to 10 of the Telemedia Act (TMG).&lt;br/&gt;&lt;br/&gt;Accountability for links&lt;br/&gt;Responsibility for the content of external links (to web pages of third parties) lies solely with the operators of the linked pages. No violations were evident to us at the time of linking. Should any legal infringement become known to us, we will remove the respective link immediately.&lt;br/&gt;&lt;br/&gt;Copyright&lt;br/&gt; Our web pages and their contents are subject to German copyright law. Unless expressly permitted by law (&amp;sect; 44a et seq. of the copyright law), every form of utilizing, reproducing or processing works subject to copyright protection on our web pages requires the prior consent of the respective owner of the rights. Individual reproductions of a work are allowed only for private use, so must not serve either directly or indirectly for earnings. Unauthorized utilization of copyrighted works is punishable (&amp;sect; 106 of the copyright law).&lt;br/&gt;&lt;br/&gt;&lt;i&gt;Quelle:  &lt;/i&gt;&lt;a href=&#34;http://www.muster-vorlagen.net&#34; target=&#34;_blank&#34;&gt;www.Muster-Vorlagen.net - Impressum Generator  &lt;/a&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>https://bartschat.github.io/post/aboutme/</link>
+      <pubDate>Wed, 20 Apr 2016 17:20:25 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/aboutme/</guid>
+      <description>&lt;p&gt;Name:   Lars Bartschat
+    eMail:  lars@alles-am-en.de&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Erinnerungen an die Reisen eines Zwerges</title>
@@ -161,25 +192,25 @@ Wahrlich das Glück ist uns hold”
     
     <item>
       <title>How to add a RealTimeClock (DS3231) to your Raspberry Pi powered PirateBox</title>
-      <link>https://bartschat.github.io/post/welcome/</link>
+      <link>https://bartschat.github.io/post/piratebox_rtc/</link>
       <pubDate>Wed, 20 Apr 2016 19:03:59 +0200</pubDate>
       
-      <guid>https://bartschat.github.io/post/welcome/</guid>
+      <guid>https://bartschat.github.io/post/piratebox_rtc/</guid>
       <description>
 
-&lt;h2 id=&#34;history:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;History&lt;/h2&gt;
+&lt;h2 id=&#34;history:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;History&lt;/h2&gt;
 
 &lt;p&gt;2016-02-09 Version 1.0 including rewrite for Arch Linux&lt;/p&gt;
 
 &lt;p&gt;2016-02-08 DRAFT version created (Lars@alles-am-en.de)&lt;/p&gt;
 
-&lt;h2 id=&#34;license-stuff:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;License stuff&lt;/h2&gt;
+&lt;h2 id=&#34;license-stuff:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;License stuff&lt;/h2&gt;
 
 &lt;p&gt;This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
 International License. To view a copy of this license,
 visit &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;http://creativecommons.org/licenses/by-sa/4.0/&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;intro:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Intro&lt;/h2&gt;
+&lt;h2 id=&#34;intro:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;This tutorial will describe how your Raspberry Pi powered PirateBox can be
 extended with a RealTimeClock module. Adding an RTC improves your PirateBox
@@ -198,13 +229,13 @@ You can get these modules for as low as 2 or 3 US$ from China based retailers
 or for a little more if you want to order at local retailers.
 So, letÂ´s get started and add timekeeping to your PirateBox.&lt;/p&gt;
 
-&lt;h2 id=&#34;step-1-buy-rtc-module:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 1 - Buy RTC module&lt;/h2&gt;
+&lt;h2 id=&#34;step-1-buy-rtc-module:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;Step 1 - Buy RTC module&lt;/h2&gt;
 
 &lt;p&gt;Acquire a RealTimeClock module with a DS3231 chip at a retailer of your choice.
 DS1307 chips are working fine as well, they just are not as precise as the
 DS3231 modules.&lt;/p&gt;
 
-&lt;h2 id=&#34;step-2-add-i2c-support:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 2 - Add I2C support&lt;/h2&gt;
+&lt;h2 id=&#34;step-2-add-i2c-support:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;Step 2 - Add I2C support&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Make sure your system is up to date:&lt;/p&gt;
@@ -245,11 +276,11 @@ DS3231 modules.&lt;/p&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;step-3-add-rtc-module-onto-gpio-ports:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 3 - Add RTC module onto GPIO ports&lt;/h2&gt;
+&lt;h2 id=&#34;step-3-add-rtc-module-onto-gpio-ports:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;Step 3 - Add RTC module onto GPIO ports&lt;/h2&gt;
 
 &lt;p&gt;This one is really easy, just plug the RTC chip onto the correct GPIO ports.&lt;/p&gt;
 
-&lt;h2 id=&#34;step-4-test-and-set-the-new-hardware-clock-module:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 4 - Test and set the new hardware clock module&lt;/h2&gt;
+&lt;h2 id=&#34;step-4-test-and-set-the-new-hardware-clock-module:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;Step 4 - Test and set the new hardware clock module&lt;/h2&gt;
 
 &lt;p&gt;After the Pi is back up check out if the RTC is detected:&lt;/p&gt;
 
@@ -280,7 +311,7 @@ Write the current system time to the RTC module&lt;/p&gt;
 Tue Feb  9 17:17:46 2016  .375681 seconds
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;step-5-add-autostart-script-to-systemd:2cc7dc244eed4480e8b46c91e911e96b&#34;&gt;Step 5 Add autostart script to systemd&lt;/h2&gt;
+&lt;h2 id=&#34;step-5-add-autostart-script-to-systemd:5f88d115bb0dee76a8169d67dc477ff9&#34;&gt;Step 5 Add autostart script to systemd&lt;/h2&gt;
 
 &lt;p&gt;The final step is now to automatically initialize the hardware clock module
 and sync the system time to it. This tutorial assumes that you are using
