@@ -6,8 +6,71 @@
     <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Apr 2016 18:03:59 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 21 Apr 2016 17:54:21 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX</title>
+      <link>https://bartschat.github.io/post/thesis_workflow/</link>
+      <pubDate>Thu, 21 Apr 2016 17:54:21 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/thesis_workflow/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/thesis_workflow.png&#34; alt=&#34;Thesis workflow graphical display&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;prequisites:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Prequisites&lt;/h1&gt;
+
+&lt;h2 id=&#34;needed-software:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Needed software&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.tug.org/mactex/&#34; title=&#34;Link to MacTex on tug.org&#34;&gt;MacTeX - The TeX Distribution for OSX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pandoc.org/&#34; title=&#34;Link to pandoc.org&#34;&gt;Pandoc - A universal document converter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34; title=&#34;Link to git homepage&#34;&gt;git - a free and open source distributed version control system &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/&#34; title=&#34;Link to dropbox homepage&#34;&gt;Dropbox - cloud file service&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;compile.sh shell script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/zsh
+
+cat ./header.tex &amp;gt; output.tex
+
+pandoc -f markdown -t latex ./Executive.md -o Executive.tex
+pandoc -f markdown -t latex ./Abkürzungen.md -o Abkürzungen.tex
+pandoc -f markdown -t latex ./Hauptteil.md -o Hauptteil.tex
+pandoc -f markdown -t latex ./Eidesstatt.md -o Eidesstatt.tex
+
+cat ./Executive.tex &amp;gt;&amp;gt; output.tex
+cat ./Abbildungen.tex &amp;gt;&amp;gt; output.tex
+cat ./Abkürzungen.tex &amp;gt;&amp;gt; output.tex
+cat ./Inhaltsverzeichnis.tex &amp;gt;&amp;gt; output.tex
+cat ./Hauptteil.tex &amp;gt;&amp;gt; output.tex
+cat ./Literatur.tex &amp;gt;&amp;gt; output.tex
+cat ./Eidesstatt.tex &amp;gt;&amp;gt; output.tex
+cat ./footer.tex &amp;gt;&amp;gt; output.tex
+
+
+latexmk -gg -pdf ./output
+
+
+if [ $# -eq 2 ]
+        then
+                if [ &amp;quot;$1&amp;quot; == &amp;quot;push&amp;quot; ]
+                        then
+                                /usr/local/bin/git add *
+                                /usr/local/bin/git commit  -m &amp;quot;$2&amp;quot;
+                                /usr/local/bin/git push
+                        else
+                                echo &amp;quot;Huh?&amp;quot;
+                                exit 1
+                fi
+else
+        echo &amp;quot;Not pushed to git repo!&amp;quot;
+fi
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Welcome to Lars&#39; nerdy blog</title>
