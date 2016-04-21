@@ -93,6 +93,11 @@ So I needed three things:&lt;/p&gt;
 
 &lt;h1 id=&#34;prequisites:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Prequisites&lt;/h1&gt;
 
+&lt;h2 id=&#34;preliminary-remarks:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Preliminary remarks&lt;/h2&gt;
+
+&lt;p&gt;This description is still a work in progress. I´ll have to write the full text and create a new version
+of the graphical workflow to include bibtex for citation management. Stay tuned&amp;hellip;&lt;/p&gt;
+
 &lt;h2 id=&#34;needed-software:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Needed software&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -102,7 +107,7 @@ So I needed three things:&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/&#34; title=&#34;Link to dropbox homepage&#34;&gt;Dropbox - cloud file service&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;compile.sh shell script:&lt;/p&gt;
+&lt;h2 id=&#34;compile-sh-shell-script:c090ac25567b03c65b47b1965f48ade3&#34;&gt;compile.sh shell script:&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;#!/bin/zsh
 
