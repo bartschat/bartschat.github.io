@@ -6,8 +6,76 @@
     <description>Recent content on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Apr 2016 17:54:21 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 21 Apr 2016 20:24:13 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to create your own mixtape with mp3s to time interval training sessions (using Audacity)</title>
+      <link>https://bartschat.github.io/post/interval_training_mixtape/</link>
+      <pubDate>Thu, 21 Apr 2016 20:24:13 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/interval_training_mixtape/</guid>
+      <description>&lt;p&gt;Interval training is nice but how to measure the intervals in a comfortable way? That&amp;rsquo;s been my problem after I decided to pickup heavybag training after a while. I was looking for a nice way to keep track of my round and break times without having to look a watch all the time. I tried to use an interval timer on my iPhone. Nice, but not what I really wanted. After thinking a while about it I had an idea: Why not mix and edit some music so that active work times and break times would be clearly distuingishable? And I wanted a bell. :)
+So I needed three things:
+* An audio editing software
+* a bell sound
+* music
+The third thing was easy, just a short look in my iTunes library and some hours later a I had some songs picked:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/00011.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I created two playlists:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sports&lt;/li&gt;
+&lt;li&gt;Sports break&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first list consists of songs with a duration of at least 3:00mins, as I wanted to do 3:00mins rounds on the bag. And they had to be uptempo songs so I chose some metal and hard rock. The second list consists of slower songs for my breaks.&lt;/p&gt;
+
+&lt;p&gt;Now I needed a bell like the ones used in the boxing ring. Via Google I found &lt;a href=&#34;http://www.freesound.org/&#34;&gt;http://www.freesound.org/&lt;/a&gt; and signed on. A fitting sample was quick to be found here: &lt;a href=&#34;http://www.freesound.org/samplesViewSingle.php?id=66951&#34;&gt;http://www.freesound.org/samplesViewSingle.php?id=66951&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s get mixing. :)&lt;/p&gt;
+
+&lt;p&gt;I used Audacity (&lt;a href=&#34;http://audacity.sourceforge.net/&#34;&gt;http://audacity.sourceforge.net/&lt;/a&gt;) for editing under Mac OS X, but Audacity will run under Windows or Linux as well. Starting it up you will encounter the folling screen:
+&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00021.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To begin editing I opened my prepared playlist in iTunes, selected my first song and right clicked it &amp;ndash;&amp;gt; Show in Finder&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00041.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now I could drag and drop the file into Audacity where it would be imported. Yeah, my first editable track. To trim the volume to my likings I used the Peak Limiter which can be found in the menu &amp;ldquo;Effects - Apple: AUPeakLimiter&amp;rdquo;. With the slider I could now limit the volume:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00151.png?w=307&amp;amp;h=127&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now I marked the first five seconds of the track with the mouse cursor. Or one can use the text boxes below the track area and just type which time frames are to be selected. I wanted the song to be faded in and via &amp;ldquo;Effects: FadeIn&amp;rdquo; this was accomplished. The timeframes 2:55 to 3:00 were faded out in the same way.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00141.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now the most important part: My bell! :) The wave file from Freesound was dropped into Audacity:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00121.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I didn&amp;rsquo;t quite like the sound of it, so I decided to pitch it down a little bit with the &amp;ldquo;Effects: Tone Pitch&amp;rdquo;. I only went down four semitones:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00171.png?w=248&amp;amp;h=210&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was nearly down with the first song now. But Audacity projects won&amp;rsquo;t play on any device so I had to export the song via the file menu. First I had to setup the basics, e.g. filename, destination and sound quality. Afterwards I had to put in the metadata:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00181.png?w=373&amp;amp;h=245&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I filled the genre field with the entry &amp;ldquo;Intervall Training&amp;rdquo; to make handling the songs in iTunes more comfortable. After the Audacity export was complete I imported the file into my iTunes library and created a new, smart playlist (not sure whether they are called smart or intelligent playlists in english) with the following criteria:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00191.png?w=482&amp;amp;h=149&#34; /&gt;
+(genre is containing Intervall Training)&lt;/p&gt;
+
+&lt;p&gt;The first song was finished now. In the same way I edited the next piece of music I wanted to use for my breaks. The only difference was that I chose 30 seconds as break duration. :) The playlist looked like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00051.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now I could plug in my iPod, sync the playlist and hit the bag. Ok, I did more than two songs. ;)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX</title>
