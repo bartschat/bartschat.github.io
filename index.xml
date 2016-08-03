@@ -6,8 +6,174 @@
     <description>Recent content on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 May 2016 20:27:28 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 03 Aug 2016 18:05:21 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX</title>
+      <link>https://bartschat.github.io/post/thesis_workflow/</link>
+      <pubDate>Wed, 03 Aug 2016 18:05:21 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/thesis_workflow/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/thesis_workflow.png&#34; alt=&#34;Thesis workflow graphical display&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;prequisites:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Prequisites&lt;/h1&gt;
+
+&lt;h2 id=&#34;preliminary-remarks:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Preliminary remarks&lt;/h2&gt;
+
+&lt;p&gt;This description is still a work in progress. I´ll have to write the full text and create a new version
+of the graphical workflow to include bibtex for citation management. Stay tuned&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Updated 2016-08-03: Small changes in compile.sh and a short workflow description&lt;/p&gt;
+
+&lt;h2 id=&#34;needed-software:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Needed software:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.tug.org/mactex/&#34; title=&#34;Link to MacTex on tug.org&#34;&gt;MacTeX - The TeX Distribution for OSX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pandoc.org/&#34; title=&#34;Link to pandoc.org&#34;&gt;Pandoc - A universal document converter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34; title=&#34;Link to git homepage&#34;&gt;git - a free and open source distributed version control system &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Optional: &lt;a href=&#34;https://www.dropbox.com/&#34; title=&#34;Link to dropbox homepage&#34;&gt;Dropbox - cloud file service&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;short-description-of-the-workflow:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Short description of the workflow:&lt;/h1&gt;
+
+&lt;p&gt;The basic workflow is easily described in a few words: I write my paper in the form of several markdown files that live together in one folder with a simple shell script called &amp;ldquo;compile.sh&amp;rdquo; and some LaTeX files that include footer, header and some configuration settings. As an example you can take a look at the file &amp;ldquo;executive.md&amp;rdquo; containing the executive summary of the paper (actually right now it´s a dummy file):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+
+*Ziel* - Beeindrucken
+
+*Vorgehen* - Spannend
+
+*Ergebnisse* - Grandios
+
+*Limitationen* - Keine
+
+*Praktische Implikationen* - Alles graue Theorie
+
+*Mehrwert* - Keiner, aber war schön
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You might notice the two LaTeX macros in the first two lines. As this procedure is still work in progress I did not change those into markdown. I´ll have to check out how to create sections in markdown that will be taken into the table of contents when the typesetting is taking place.&lt;/p&gt;
+
+&lt;h2 id=&#34;config-tex:c090ac25567b03c65b47b1965f48ade3&#34;&gt;config.tex:&lt;/h2&gt;
+
+&lt;p&gt;The configuration is done in the &amp;ldquo;config.tex&amp;rdquo; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\newcommand{\Arbeitstitel}
+{
+    Titel der Arbeit
+}
+\newcommand{\Autor}
+{
+    Lars Bartschat
+}
+
+\newcommand{\MatrikelNr}
+{
+    123123123
+}
+
+\newcommand{\EmailAdresse}
+{
+    meinname@meinserver.de
+}
+\newcommand{\Arbeitsart}
+{
+    Projektarbeit
+}
+\newcommand{\Studiengang}
+{
+    Marketing Executive Program 
+}
+\newcommand{\Hochschule}
+{
+    Westfälischen Wilhelms-Universität Münster
+}
+\newcommand{\Lehrstuhl}
+{
+    Lehrstuhl für Mustermänner, Münster
+}   
+\newcommand{\Themensteller}
+{
+    Prof. Dr. Mustermann
+}       
+\newcommand{\Betreuer}
+{
+    Dipl.-Kfm. Mustermann
+}       
+\newcommand{\Ausgabedatum}
+{
+    1.1.2016
+}       
+\newcommand{\Abgabedatum}
+{
+    31.12.2016
+}
+\newcommand{\Ort}
+{
+    Münster
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Basically this file is just defining a lot of LaTeX macros that will be used in the markdown files so that the structure can be reused in a comfortable way for the next paper.&lt;/p&gt;
+
+&lt;h2 id=&#34;compile-sh-shell-script:c090ac25567b03c65b47b1965f48ade3&#34;&gt;compile.sh shell script:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/bin/zsh
+
+# &amp;quot;translate&amp;quot; the markdown files into latex files
+
+pandoc -f markdown -t latex ./Executive.md -o Executive.tex
+pandoc -f markdown -t latex ./Abkürzungen.md -o Abkürzungen.tex
+pandoc -f markdown -t latex ./Hauptteil.md -o Hauptteil.tex
+pandoc -f markdown -t latex ./Eidesstatt.md -o Eidesstatt.tex
+
+# concatenate all latex files into one
+
+cat ./header.tex &amp;gt; output.tex
+cat ./Executive.tex &amp;gt;&amp;gt; output.tex
+cat ./Abbildungen.tex &amp;gt;&amp;gt; output.tex
+cat ./Abkürzungen.tex &amp;gt;&amp;gt; output.tex
+cat ./Inhaltsverzeichnis.tex &amp;gt;&amp;gt; output.tex
+cat ./Hauptteil.tex &amp;gt;&amp;gt; output.tex
+cat ./Literatur.tex &amp;gt;&amp;gt; output.tex
+cat ./Eidesstatt.tex &amp;gt;&amp;gt; output.tex
+cat ./footer.tex &amp;gt;&amp;gt; output.tex
+
+# typeset the latex file and create a pdf file
+
+latexmk -gg -pdf ./output
+
+# rudimentary command line argument interpretation
+
+if [ $# -eq 2 ]
+    then
+        if [ &amp;quot;$1&amp;quot; == &amp;quot;push&amp;quot; ]
+            then
+                # push all files into git repository with commit message
+                /usr/local/bin/git add *
+                /usr/local/bin/git commit  -m &amp;quot;$2&amp;quot;
+                /usr/local/bin/git push
+            else
+                echo &amp;quot;Huh?&amp;quot;
+                exit 1
+            fi
+    else
+        echo &amp;quot;Not pushed to git repo!&amp;quot;
+    fi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;what-does-compile-sh-do:c090ac25567b03c65b47b1965f48ade3&#34;&gt;What does compile.sh do?&lt;/h2&gt;
+
+&lt;p&gt;The compile script just takes all the markdown files and uses pandoc to translate them into LaTex documents. In the next step all LaTeX documents will be concatenated into one &amp;ldquo;big&amp;rdquo; LaTeX file in the given order. Finally the LaTeX file is typesetted and a pdf file is written as output.&lt;/p&gt;
+
+&lt;p&gt;In the case that the user supplies two command line arguments, with the first being &amp;ldquo;push&amp;rdquo; and the second being the commit message, the whole project is commited and pushed into a git repository for version control and backup purposes.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My Windows Phone recommended apps list (Spring 2016)</title>
@@ -126,74 +292,6 @@ So I needed three things:&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;&#34; src=&#34;http://allesamende.files.wordpress.com/2011/01/audacityblogpost00051.png?w=500&amp;amp;h=312&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now I could plug in my iPod, sync the playlist and hit the bag. Ok, I did more than two songs. ;)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX</title>
-      <link>https://bartschat.github.io/post/thesis_workflow/</link>
-      <pubDate>Thu, 21 Apr 2016 17:54:21 +0200</pubDate>
-      
-      <guid>https://bartschat.github.io/post/thesis_workflow/</guid>
-      <description>
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/thesis_workflow.png&#34; alt=&#34;Thesis workflow graphical display&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;prequisites:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Prequisites&lt;/h1&gt;
-
-&lt;h2 id=&#34;preliminary-remarks:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Preliminary remarks&lt;/h2&gt;
-
-&lt;p&gt;This description is still a work in progress. I´ll have to write the full text and create a new version
-of the graphical workflow to include bibtex for citation management. Stay tuned&amp;hellip;&lt;/p&gt;
-
-&lt;h2 id=&#34;needed-software:c090ac25567b03c65b47b1965f48ade3&#34;&gt;Needed software&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.tug.org/mactex/&#34; title=&#34;Link to MacTex on tug.org&#34;&gt;MacTeX - The TeX Distribution for OSX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://pandoc.org/&#34; title=&#34;Link to pandoc.org&#34;&gt;Pandoc - A universal document converter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://git-scm.com/&#34; title=&#34;Link to git homepage&#34;&gt;git - a free and open source distributed version control system &lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.dropbox.com/&#34; title=&#34;Link to dropbox homepage&#34;&gt;Dropbox - cloud file service&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;compile-sh-shell-script:c090ac25567b03c65b47b1965f48ade3&#34;&gt;compile.sh shell script:&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;#!/bin/zsh
-
-cat ./header.tex &amp;gt; output.tex
-
-pandoc -f markdown -t latex ./Executive.md -o Executive.tex
-pandoc -f markdown -t latex ./Abkürzungen.md -o Abkürzungen.tex
-pandoc -f markdown -t latex ./Hauptteil.md -o Hauptteil.tex
-pandoc -f markdown -t latex ./Eidesstatt.md -o Eidesstatt.tex
-
-cat ./Executive.tex &amp;gt;&amp;gt; output.tex
-cat ./Abbildungen.tex &amp;gt;&amp;gt; output.tex
-cat ./Abkürzungen.tex &amp;gt;&amp;gt; output.tex
-cat ./Inhaltsverzeichnis.tex &amp;gt;&amp;gt; output.tex
-cat ./Hauptteil.tex &amp;gt;&amp;gt; output.tex
-cat ./Literatur.tex &amp;gt;&amp;gt; output.tex
-cat ./Eidesstatt.tex &amp;gt;&amp;gt; output.tex
-cat ./footer.tex &amp;gt;&amp;gt; output.tex
-
-
-latexmk -gg -pdf ./output
-
-
-if [ $# -eq 2 ]
-        then
-                if [ &amp;quot;$1&amp;quot; == &amp;quot;push&amp;quot; ]
-                        then
-                                /usr/local/bin/git add *
-                                /usr/local/bin/git commit  -m &amp;quot;$2&amp;quot;
-                                /usr/local/bin/git push
-                        else
-                                echo &amp;quot;Huh?&amp;quot;
-                                exit 1
-                fi
-else
-        echo &amp;quot;Not pushed to git repo!&amp;quot;
-fi
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
