@@ -6,8 +6,47 @@
     <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Aug 2016 18:05:21 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 24 Aug 2016 20:29:45 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My return to the iPhone</title>
+      <link>https://bartschat.github.io/post/return_to_the_iphone/</link>
+      <pubDate>Wed, 24 Aug 2016 20:29:45 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/return_to_the_iphone/</guid>
+      <description>
+
+&lt;h1 id=&#34;out-microsoft-lumia-650-in-apple-iphone-se:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Out: Microsoft Lumia 650 - In: Apple iPhone SE&lt;/h1&gt;
+
+&lt;p&gt;Yes, after only four months I gave up on my Lumia 650, drove to the next Apple Store and bought myself a shiny new iPhone SE. Why did I put the Lumia away after that short time span? I´ll try to just come up with a short list of things I like about Windows Phone 10 and that particular model and another list with things I dislike.&lt;/p&gt;
+
+&lt;h2 id=&#34;windows-phone-10-the-good:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Windows Phone 10 - The Good&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Clean and dark interface&lt;/li&gt;
+&lt;li&gt;Live tiles&lt;/li&gt;
+&lt;li&gt;Swipe keyboard&lt;/li&gt;
+&lt;li&gt;The camera&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;windows-phone-10-the-bad:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Windows Phone 10 - The Bad&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The size of the Lumia 650 - I´m really not into the trend of bigger and bigger phones, I still remember phones getting more and more miniaturized in the early 2000s, like the Nokia 8210.&lt;/li&gt;
+&lt;li&gt;The camera app - Always a little bit too slow&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;windows-phone-10-the-ugly:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Windows Phone 10 - The Ugly&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The App Gap - I can´t get a Windows Phone app for my action cam and that´s just the beginning. Have you ever compared for example Facebook on Windows Phone and iOS?&lt;/li&gt;
+&lt;li&gt;Unsmoothness - I am not sure if that´s an actual English word, but hey&amp;hellip; It´s just that everything seems so damn sluggish on the Lumia. Tapping the app icon, pause. App opens, pause. Swipe to switch view, pause&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And yes, I´m an Apple fanboy, but it´s just what works for me. It´s personal preference and everything that get´s the job is fine, maybe just not for me. ;)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX</title>
