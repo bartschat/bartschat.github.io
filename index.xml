@@ -6,45 +6,114 @@
     <description>Recent content on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Aug 2016 20:29:45 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 14 Sep 2016 17:53:34 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>My return to the iPhone</title>
-      <link>https://bartschat.github.io/post/return_to_the_iphone/</link>
-      <pubDate>Wed, 24 Aug 2016 20:29:45 +0200</pubDate>
+      <title>Automated embedding of tables from CSV files and creating nice looking graphs in your MarkDown/LaTeX papers</title>
+      <link>https://bartschat.github.io/post/auto_embedding_tables_and_graphs_in_md_latex/</link>
+      <pubDate>Wed, 14 Sep 2016 17:53:34 +0200</pubDate>
       
-      <guid>https://bartschat.github.io/post/return_to_the_iphone/</guid>
+      <guid>https://bartschat.github.io/post/auto_embedding_tables_and_graphs_in_md_latex/</guid>
       <description>
 
-&lt;h1 id=&#34;out-microsoft-lumia-650-in-apple-iphone-se:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Out: Microsoft Lumia 650 - In: Apple iPhone SE&lt;/h1&gt;
+&lt;p&gt;Generally speaking I think, that there is no need to explain why we want to embed tables and graphs in our academic papers, it´s our daily bread as students, Ph.D. candidates and so on. There are always data waiting to be analyzed and displayed in a way that is a) good looking and b) clearly arranged to foster readability and easy of understanding.&lt;/p&gt;
 
-&lt;p&gt;Yes, after only four months I gave up on my Lumia 650, drove to the next Apple Store and bought myself a shiny new iPhone SE. Why did I put the Lumia away after that short time span? I´ll try to just come up with a short list of things I like about Windows Phone 10 and that particular model and another list with things I dislike.&lt;/p&gt;
+&lt;h2 id=&#34;what-we-re-looking-to-create:04e9607b59a5c60239b3a2518f819660&#34;&gt;What we´re looking to create&lt;/h2&gt;
 
-&lt;h2 id=&#34;windows-phone-10-the-good:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Windows Phone 10 - The Good&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/tables.png&#34; alt=&#34;Auto-generated table&#34; /&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Clean and dark interface&lt;/li&gt;
-&lt;li&gt;Live tiles&lt;/li&gt;
-&lt;li&gt;Swipe keyboard&lt;/li&gt;
-&lt;li&gt;The camera&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/graphs.png&#34; alt=&#34;Auto-generated graph&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;windows-phone-10-the-bad:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Windows Phone 10 - The Bad&lt;/h2&gt;
+&lt;h2 id=&#34;prerequisites:04e9607b59a5c60239b3a2518f819660&#34;&gt;Prerequisites&lt;/h2&gt;
 
-&lt;ul&gt;
-&lt;li&gt;The size of the Lumia 650 - I´m really not into the trend of bigger and bigger phones, I still remember phones getting more and more miniaturized in the early 2000s, like the Nokia 8210.&lt;/li&gt;
-&lt;li&gt;The camera app - Always a little bit too slow&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;This description is based on my thesis workflow that I describe in detail in another article here on my blog: &lt;a href=&#34;https://bartschat.github.io/post/thesis_workflow/&#34;&gt;My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;windows-phone-10-the-ugly:7650ba615f4ee69a5ae821c4ea743fac&#34;&gt;Windows Phone 10 - The Ugly&lt;/h2&gt;
+&lt;h2 id=&#34;create-a-table-from-a-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;Create a table from a *.CSV&lt;/h2&gt;
 
-&lt;ul&gt;
-&lt;li&gt;The App Gap - I can´t get a Windows Phone app for my action cam and that´s just the beginning. Have you ever compared for example Facebook on Windows Phone and iOS?&lt;/li&gt;
-&lt;li&gt;Unsmoothness - I am not sure if that´s an actual English word, but hey&amp;hellip; It´s just that everything seems so damn sluggish on the Lumia. Tapping the app icon, pause. App opens, pause. Swipe to switch view, pause&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;We are working under the assumption that your data is available in one or more plain text ASCII *.csv file(s) in the root directory of your paper, maybe looking something like this simple example:&lt;/p&gt;
 
-&lt;p&gt;And yes, I´m an Apple fanboy, but it´s just what works for me. It´s personal preference and everything that get´s the job is fine, maybe just not for me. ;)&lt;/p&gt;
+&lt;h3 id=&#34;geekbench-apple-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;geekbench_apple.csv&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Product Release Score
+iPhone 6s plus  2015    4341
+iPhone 6s   2015    4331
+iPhone 6 plus   2014    2883
+iPhone 6    2014    2877
+iPhone 5s   2013    2510
+iPhone 5    2012    1271
+iPhone 4s   2011    404
+iPhone 4    2010    206
+iPhone 3gs  2009    149
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;geekbench-samsung-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;geekbench_samsung.csv&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Product,Release,Score
+{},{},{}
+Samsung Galaxy S,2010,262
+Samsung Galaxy S II,2011,481
+Samsung Galaxy S III,2012,1285
+Samsung Galaxy S 4,2013,2676
+Samsung Galaxy S 5,2014,2805
+Samsung Galaxy S 6 ,2015,4262
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This data is a small collection of the geekbench scores of some mobile handsets. Geekbench is a benchmarking tool for a diverse set of computing platforms and owned by &lt;a href=&#34;http://www.primatelabs.com/&#34;&gt;Primate Labs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To import the data and generate a simple table we make use of the LaTeX package &amp;ldquo;csv_simple&amp;rdquo;. It is included in our &amp;ldquo;header.tex&amp;rdquo; file that is part of the beforementioned workflow:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\usepackage{csvsimple}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now all we have to do is to import the two *.csv files in our MarkDown file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\begin{center}
+    \csvautotabular{geekbench_apple.csv}
+    \csvautotabular{geekbench_samsung.csv}
+\end{center}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The result:
+&lt;img src=&#34;https://bartschat.github.io/img/tables.png&#34; alt=&#34;Auto-generated table&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;create-a-graph-from-a-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;Create a graph from a *.CSV&lt;/h2&gt;
+
+&lt;p&gt;The next step is to visualize the data, because looking at tables is usually a little bit tiring honestly. Creating a graph is a little bit more complex that just building some bland tables, so there will a little bit more LaTeX code in our MarkDown file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;\begin{figure}
+\begin{tikzpicture} 
+       \begin{axis} 
+        [
+                width=\linewidth*.9, % Scale the plot to \linewidth
+                grid=major, 
+                grid style={dashed,gray!30},
+                xlabel=Release, % Set the labels
+                ylabel=Geekbench Score,
+                %x unit=\si{\volt}, % Set the respective units
+                %y unit=\si{\ampere},
+                legend pos = north west,
+                x tick label style = {rotate = 90, anchor=east, /pgf/number format/1000 sep= },
+                y tick label style = {/pgf/number format/1000 sep= },
+                xtick distance = 1,
+                minor x tick num = 1,
+                ymin = 0, xmin = 2009,
+                ymax = 4500, xmax = 2016,
+                legend entries = {$Apple$, $Samsung$},
+            ]
+            \addplot table [col sep=comma, x = Release, y = Score]{geekbench_apple.csv}; 
+            \addplot table [col sep=comma, x = Release, y = Score]{geekbench_samsung.csv}; 
+        \end{axis} 
+     \end{tikzpicture}
+    \caption{Entwicklung der Leistungsfähigkeit von Smartphones Quelle: Eigene Darstellung, Daten: Primate Labs}
+    \label{abb:geekbench}
+\end{figure} 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On the first look, all of this magical code seems confusing, but it´s more or less self explaining. We start with the creation of a LaTeX &lt;em&gt;figure&lt;/em&gt; and a &lt;em&gt;tikzpicture&lt;/em&gt;, which is basically the container which will be filled with the graph. The graph itself is the &lt;em&gt;axis&lt;/em&gt; environment, in which the graph is set up, labelled and the legend created. With the &lt;em&gt;addplot&lt;/em&gt; command the according *.csv files will be parsed and the graph will be &amp;ldquo;painted&amp;rdquo; in LaTeX. The whole process is finished nicely with a fitting &lt;em&gt;caption&lt;/em&gt; and a &lt;em&gt;label&lt;/em&gt; so we can make references in the text blocks to the graph.&lt;/p&gt;
+
+&lt;p&gt;The result:
+&lt;img src=&#34;https://bartschat.github.io/img/graphs.png&#34; alt=&#34;Auto-generated table&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -215,54 +284,6 @@ if [ $# -eq 2 ]
     </item>
     
     <item>
-      <title>My Windows Phone recommended apps list (Spring 2016)</title>
-      <link>https://bartschat.github.io/post/windows_mobile_apps_list/</link>
-      <pubDate>Tue, 10 May 2016 20:27:28 +0200</pubDate>
-      
-      <guid>https://bartschat.github.io/post/windows_mobile_apps_list/</guid>
-      <description>
-
-&lt;p&gt;Current as of May 2016 and listed in alphabetical order, standard apps like Amazon and eBay are not included. I have not differentiated between paid and free apps, you have to check the current price in the app store, as some apps have been free or on a sale when I acquired them.&lt;/p&gt;
-
-&lt;h1 id=&#34;my-apps-list-for-windows-phone-10:5c3b2378c9109d16f6f2db859046baa5&#34;&gt;My apps list for Windows Phone 10:&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/1password-beta/9nblgggz0ht9&#34;&gt;1Password&lt;/a&gt; - THE password manager on WP (read-only), just to have all those passwords in my pocket&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/baconit/9wzdncrfj0bc&#34;&gt;Baconit&lt;/a&gt; - A WP reddit client, perfect to kill some time when I´m in the bathroom&amp;hellip;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/dropbox/9wzdncrfj0pk&#34;&gt;Dropbox&lt;/a&gt; - Alternative cloud file service&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/kicktipp/9nblggh08wxf&#34;&gt;Kicktipp&lt;/a&gt; - A client for kicktipp.de to take part in our soccer tipping community&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/kodi-remote-free/9wzdncrcx3tx&#34;&gt;kodi remote free&lt;/a&gt; - A remote control app for my Raspberry Pi powered Kodi MediaCenter&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/mehr-tanken/9wzdncrfhx8x&#34;&gt;mehr-tanken&lt;/a&gt; - Up to date gas prices, quite handy to save a few bucks&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/nextgen-reader/9wzdncrfj262&#34;&gt;Nextgen Reader&lt;/a&gt; - RSS reader with awesome feedly support&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-ch/store/apps/53-days-to-go/9nblggh07t2z&#34;&gt;53 days to go&lt;/a&gt; - Shows how many days until a set date&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/office-lens/9wzdncrfj3t8&#34;&gt;Office Lens&lt;/a&gt; - Scan documents/flipcharts/Whiteboards to PDF&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/podcast-picker/9nblggh18523&#34;&gt;Podcast Picker&lt;/a&gt; - The best Windows Phone podcatcher I´ve used to date&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/remindme-todo/9nblggh07s2x&#34;&gt;RemindMe ToDo&lt;/a&gt; - A simple ToDo list, because I don´t need as fancy a list as the likes of Wunderlist&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/telegram-messenger/9wzdncrdzhs0&#34;&gt;Telegram Messenger&lt;/a&gt; - Secure and open source messenger&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/threema/9nblggh095s5&#34;&gt;Threema&lt;/a&gt; - My main messenger app, secure, but closed source&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/toshl-finance/9wzdncrfj28l&#34;&gt;Toshl Finance&lt;/a&gt; - Book keeping for the simple guys&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/tripadvisor/9wzdncrfj3sl&#34;&gt;TripAdvisor&lt;/a&gt; - To check out where to sleep and to eat&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/wikipedia/9wzdncrfhvx0&#34;&gt;Wikipedia&lt;/a&gt; - Just knows it all&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;standard-apps:5c3b2378c9109d16f6f2db859046baa5&#34;&gt;Standard apps:&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/amazon-app/9wzdncrfj3vb&#34;&gt;Amazon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/ebay/9wzdncrfj14f&#34;&gt;eBay&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/facebook/9wzdncrfhv5g&#34;&gt;Facebook&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/instagram/9nblggh5l9xt&#34;&gt;Instagram&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/onedrive/9wzdncrfj1p3&#34;&gt;OneDrive&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/paypal/9wzdncrfj1vk&#34;&gt;PayPal&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/skype/9wzdncrfj364&#34;&gt;Skype&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/spotify/9wzdncrfj4wk&#34;&gt;Spotify&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/twitter/9wzdncrfj140&#34;&gt;Twitter&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/de-de/store/apps/whatsapp/9wzdncrdfwbs&#34;&gt;WhatsApp&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Make your own interval training mixtape</title>
       <link>https://bartschat.github.io/post/interval_training_mixtape/</link>
       <pubDate>Thu, 21 Apr 2016 20:24:13 +0200</pubDate>
@@ -335,7 +356,7 @@ So I needed three things:&lt;/p&gt;
     </item>
     
     <item>
-      <title>Welcome to Lars&#39; nerdy blog</title>
+      <title>Welcome to Lars&#39; hugo powered and github based blog</title>
       <link>https://bartschat.github.io/post/welcome/</link>
       <pubDate>Wed, 20 Apr 2016 18:03:59 +0200</pubDate>
       
