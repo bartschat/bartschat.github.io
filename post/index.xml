@@ -6,8 +6,51 @@
     <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Sep 2016 17:53:34 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 06 Oct 2016 20:02:53 +0200</lastBuildDate>
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Access your Dropbox from the Raspberry Pi via SSHFS</title>
+      <link>https://bartschat.github.io/post/Access_your_Dropbox_from_the_RaspberryPi_via_SSHFS/</link>
+      <pubDate>Thu, 06 Oct 2016 20:02:53 +0200</pubDate>
+      
+      <guid>https://bartschat.github.io/post/Access_your_Dropbox_from_the_RaspberryPi_via_SSHFS/</guid>
+      <description>
+
+&lt;h1 id=&#34;you-have-setup-your-raspberry-pi-and-are-ready-to-roll-but-your-dropbox-is-missing:5bce53e4b2274216ed503fb8319e2aa6&#34;&gt;You have setup your Raspberry Pi and are ready to roll but your Dropbox is missing?&lt;/h1&gt;
+
+&lt;p&gt;If you have been in the situation that you need access to your Dropbox from your Raspberry Pi
+then you will most propably know that Dropbox has a Linux client available but it&amp;rsquo;s X86 only.
+So, as the RPi is an ARM chip you are kinda lost. But you can use a workaround if you have a
+X86 based second machine at your disposal that is already setup with your Dropbox account and
+that is able to run an SSH server, e.g. any Linux machine will do or your macOS box. Just make
+sure that the SSH server is reachable from the RPi.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-sshfs-on-the-rpi:5bce53e4b2274216ed503fb8319e2aa6&#34;&gt;Install SSHFS on the RPi&lt;/h2&gt;
+
+&lt;p&gt;For this example I will assume that your RPi is running a Debian based Linux distribution like
+Raspbian or Ubuntu. Access a shell, e.g. open a terminal window if you are running the graphical
+UI or just use the CLI as usual if you are into that.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install sshfs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That&amp;rsquo;s nearly all the magic it takes&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;mount-the-dropbox-folder-via-sshfs:5bce53e4b2274216ed503fb8319e2aa6&#34;&gt;Mount the Dropbox folder via SSHFS&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sshfs username@hostname:/path/to/Dropbox /path/where/to/mount/the/Dropbox
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sshfs lars@larsmacbook:/Users/lars/Dropbox /home/pi/Dropbox
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Enter the correct password or make sure you have the needed ssh keys available and you are ready to
+access your Dropbox in the mount target folder.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Automated embedding of tables from CSV files and creating nice looking graphs in your MarkDown/LaTeX papers</title>
