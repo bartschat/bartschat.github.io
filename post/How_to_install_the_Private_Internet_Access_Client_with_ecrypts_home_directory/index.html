@@ -108,11 +108,12 @@ not be established.</p>
 changing the ownership of the files to my userid, an creating a symbolic link, so
 pia_manager still thinks it is living in my home dir:</p>
 
-<p>mkdir /opt/pia_manager
-  sudo chown userid:groupid /opt/pia_manager
-  sudo mv /home/userid/.pia_manager /opt/pia_manager
-  ln -s /opt/pia_manager /home/userid/.pia_manager
-  sudo reboot</p>
+<pre><code>mkdir /opt/pia_manager
+sudo chown userid:groupid /opt/pia_manager
+sudo mv /home/userid/.pia_manager /opt/pia_manager
+ln -s /opt/pia_manager /home/userid/.pia_manager
+sudo reboot
+</code></pre>
 
 <p>After these few steps the connection was established right away.</p>
 

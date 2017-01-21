@@ -496,11 +496,12 @@ not be established.&lt;/p&gt;
 changing the ownership of the files to my userid, an creating a symbolic link, so
 pia_manager still thinks it is living in my home dir:&lt;/p&gt;
 
-&lt;p&gt;mkdir /opt/pia_manager
-  sudo chown userid:groupid /opt/pia_manager
-  sudo mv /home/userid/.pia_manager /opt/pia_manager
-  ln -s /opt/pia_manager /home/userid/.pia_manager
-  sudo reboot&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir /opt/pia_manager
+sudo chown userid:groupid /opt/pia_manager
+sudo mv /home/userid/.pia_manager /opt/pia_manager
+ln -s /opt/pia_manager /home/userid/.pia_manager
+sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;After these few steps the connection was established right away.&lt;/p&gt;
 </description>
