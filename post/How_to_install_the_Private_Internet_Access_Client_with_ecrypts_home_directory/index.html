@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>About me &middot; Lars` github/Hugo powered blog</title>
+    <title>How to: Private Internet Access client in an ecryptfs home dir &middot; Lars` github/Hugo powered blog</title>
     <meta name="author" content="Lars Bartschat">
     <meta name="description" content="This place is full of stuff regarding studying, programming, working out and thingiebobs...">
     <meta name="generator" content="Hugo 0.16-DEV" />
@@ -61,22 +61,60 @@
     <main class="content" role="main">
 	    <article class="post">
 	        <header>
-	        <h1 class="post-title">About me</h1>
-	        <div class="post-meta"><time datetime="20 April 2016">20 April 2016</time></div>
+	        <h1 class="post-title">How to: Private Internet Access client in an ecryptfs home dir</h1>
+	        <div class="post-meta"><time datetime="21 January 2017">21 January 2017</time></div>
 	        </header>
 
 	        <section class="post-content">
-	            <p>Hey there and thanks for reading my blog!</p>
+	            
 
-<p>My name is Lars and I´m currently working for the German Armed Forces and
-doing my <a href="http://weiterbildung.uni-muenster.de/de/masterstudiengaenge/emba-marketing/marketingmba/">MBA</a>
-at the <a href="http://www.uni-muenster.de">University of Münster</a> in my spare time.</p>
+<h1 id="introduction:c5a77346dd4a8d90a398a986146d1e14">Introduction</h1>
 
-<p>Hopefully I´ll find a photo that can be put on this &ldquo;about me&rdquo; page soon.</p>
+<p>Recently my subscription of the <a href="http://www.cyberghostvpn.com/">Cyberghost VPN</a> service ended and I was on the
+lookout for a replacement. After reading a lot of reviews and trying some of
+the providers out I chose <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>, because the package they
+offered seemed to fit my needs at a fair price point.</p>
 
-<p>In the meantime enjoy the sometimes geeky content posted on the blog and if you like leave a comment.</p>
+<p>The installation of the Linux client was pretty straightforward:</p>
 
-<p>Cheers!</p>
+<ul>
+<li>Go to: <a href="https://www.privateinternetaccess.com/installer/download_installer_linux">https://www.privateinternetaccess.com/installer/download_installer_linux</a></li>
+<li>Download the archive</li>
+<li>unpack it</li>
+<li>run the shell script</li>
+<li>enjoy encrypted surfing</li>
+</ul>
+
+<p>Unfortunately I was not able to establish a connection, so I checked out the
+customer support pages and saw that PIA is not supporting IPv6 currently. My
+provider on the other hand is in the migration process and so my cable connection
+is using <a href="https://en.wikipedia.org/wiki/IPv6_transition_mechanism#Dual-Stack_Lite_.28DS-Lite.29">Dual Stack Lite</a>
+to save precious IPv4 adresses. I suspected some issues here and send a mail to
+PIA&rsquo;s customer support.</p>
+
+<h1 id="private-internet-access-customer-support:c5a77346dd4a8d90a398a986146d1e14">Private Internet Access - Customer Support</h1>
+
+<p>My experience with the support guy was outstanding. Nine minutes after my email I
+got my first response and was then guided systematically through the process
+of locating and fixing the problem, my <a href="https://en.wikipedia.org/wiki/ECryptfs">ecrypts</a> encrypted home directory.
+The pia manager makes use of the <a href="https://en.wikipedia.org/wiki/Setuid">&ldquo;setuid&rdquo;</a>
+mechanisim for privilege escalation (to run as root in order to change network
+settings). &ldquo;setuid&rdquo; is not supported by ecryptfs so the VPN connection could
+not be established.</p>
+
+<h1 id="the-solution-move-the-client-to-another-directory:c5a77346dd4a8d90a398a986146d1e14">The solution: move the client to another directory</h1>
+
+<p>The problem was solved easily by moving it onto an unencrypted directory in /opt,
+changing the ownership of the files to my userid, an creating a symbolic link, so
+pia_manager still thinks it is living in my home dir:</p>
+
+<p>mkdir /opt/pia_manager
+  sudo chown userid:groupid /opt/pia_manager
+  sudo mv /home/userid/.pia_manager /opt/pia_manager
+  ln -s /opt/pia_manager /home/userid/.pia_manager
+  sudo reboot</p>
+
+<p>After these few steps the connection was established right away.</p>
 
 	        </section>
 
@@ -91,9 +129,9 @@ at the <a href="http://www.uni-muenster.de">University of Münster</a> in my spa
 	        	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'bartschat';
-    var disqus_identifier = 'https:\/\/bartschat.github.io\/post\/aboutme\/';
-    var disqus_title = 'About me';
-    var disqus_url = 'https:\/\/bartschat.github.io\/post\/aboutme\/';
+    var disqus_identifier = 'https:\/\/bartschat.github.io\/post\/How_to_install_the_Private_Internet_Access_Client_with_ecrypts_home_directory\/';
+    var disqus_title = 'How to: Private Internet Access client in an ecryptfs home dir';
+    var disqus_url = 'https:\/\/bartschat.github.io\/post\/How_to_install_the_Private_Internet_Access_Client_with_ecrypts_home_directory\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -110,15 +148,15 @@ at the <a href="http://www.uni-muenster.de">University of Münster</a> in my spa
 	        <section class="share">
 	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
 	            <p class="info prompt">Share</p>
-	            <a href="http://twitter.com/share?text=About%20me&url=https%3a%2f%2fbartschat.github.io%2fpost%2faboutme%2f" title="Share on Twitter"
+	            <a href="http://twitter.com/share?text=How%20to%3a%20Private%20Internet%20Access%20client%20in%20an%20ecryptfs%20home%20dir&url=https%3a%2f%2fbartschat.github.io%2fpost%2fHow_to_install_the_Private_Internet_Access_Client_with_ecrypts_home_directory%2f" title="Share on Twitter"
 	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
 	            </a>
-	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbartschat.github.io%2fpost%2faboutme%2f" title="Share on Facebook"
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbartschat.github.io%2fpost%2fHow_to_install_the_Private_Internet_Access_Client_with_ecrypts_home_directory%2f" title="Share on Facebook"
 	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
 	            </a>
-	            <a href="https://plus.google.com/share?url=https%3a%2f%2fbartschat.github.io%2fpost%2faboutme%2f" title="Share on Google+"
+	            <a href="https://plus.google.com/share?url=https%3a%2f%2fbartschat.github.io%2fpost%2fHow_to_install_the_Private_Internet_Access_Client_with_ecrypts_home_directory%2f" title="Share on Google+"
 	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
 	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
 	            </a>
