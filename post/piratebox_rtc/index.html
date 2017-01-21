@@ -62,7 +62,7 @@
 	    <article class="post">
 	        <header>
 	        <h1 class="post-title">How to add a RealTimeClock (DS3231) to your Raspberry Pi powered PirateBox</h1>
-	        <div class="post-meta"><time datetime="20 April 2016">20 April 2016</time></div>
+	        <div class="post-meta"><time datetime="21 April 2016">21 April 2016</time></div>
 	        </header>
 
 	        <section class="post-content">
@@ -113,10 +113,9 @@ DS3231 modules.</p>
 <pre><code>        $ sudo pacman -Syu
 </code></pre></li>
 
-<li><p>Install I2C packages:</p></li>
-
-<li><pre><code>        $ sudo pacman -S i2c-tools
-</code></pre></li>
+<li><p>Install I2C packages:
+*
+            $ sudo pacman -S i2c-tools</p></li>
 
 <li><p>Activate I2C support in <code>config.txt</code>:</p>
 
@@ -158,14 +157,14 @@ DS3231 modules.</p>
 $ sudo i2cdetect -y 1
 
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-    00:          -- -- -- -- -- -- -- -- -- -- -- -- -- 
-    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-    40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-    60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- -- 
-    70: -- -- -- -- -- -- -- -- 
+    00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+    10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    60: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- --
+    70: -- -- -- -- -- -- -- --
 </code></pre>
 
 <p>Now make sure that your current system time is correct (via NTP or just set
@@ -189,7 +188,7 @@ a systemd based Linux distribution for your Raspberry Pi, e.g. raspbian.
 Non-systemd based distribution require a different setup.
 * Store a script called <code>PirateClock.sh</code>in <code>/usr/bin</code>:</p>
 
-<pre><code>    $ sudo vim /usr/bin/PirateClock.sh 
+<pre><code>    $ sudo vim /usr/bin/PirateClock.sh
 </code></pre>
 
 <ul>
@@ -235,14 +234,14 @@ WantedBy=multi-user.target
 
 <pre><code>$ sudo systemctl daemon-reload
 $ sudo systemctl enable PirateClock.service
-Created symlink from /etc/systemd/system/multi-user.target.wants/PirateClock.service 
+Created symlink from /etc/systemd/system/multi-user.target.wants/PirateClock.service
 to /usr/lib/systemd/system/PirateClock.service.
 </code></pre></li>
 
 <li><p><code>reboot</code> your PirateBox and check if the script was correctly executed:</p>
 
 <pre><code>$ sudo systemctl status PirateClock.service
-[sudo] password for alarm: 
+[sudo] password for alarm:
 * PirateClock.service - PirateClock - hwclock initialization and sync
    Loaded: loaded (/usr/lib/systemd/system/PirateClock.service; enabled; vendor preset: disabled)
    Active: inactive (dead) since Tue 2016-02-09 17:34:32 UTC; 49s ago
@@ -256,7 +255,7 @@ Hint: Some lines were ellipsized, use -l to show in full.
 
 $ sudo hwclock -r
 Tue Feb  9 17:35:57 2016  .465668 seconds
-$ date 
+$ date
 Tue Feb  9 17:36:01 UTC 2016
 </code></pre></li>
 </ul>
