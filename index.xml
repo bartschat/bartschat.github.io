@@ -6,8 +6,142 @@
     <description>Recent content on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Feb 2017 17:46:55 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 02 Mar 2017 20:49:49 +0100</lastBuildDate>
     <atom:link href="https://bartschat.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Little Pi Bot - a Telegram ChatBot in Python</title>
+      <link>https://bartschat.github.io/post/littlepibot_telegram_chatbot_python/</link>
+      <pubDate>Thu, 02 Mar 2017 20:49:49 +0100</pubDate>
+      
+      <guid>https://bartschat.github.io/post/littlepibot_telegram_chatbot_python/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/littlepibot.png&#34; alt=&#34;Sketchnote of Little Pi Bot&#39;s layout&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;general-idea-layout:9ba6166c31e88ffbafd8ff0da89f02eb&#34;&gt;General idea/layout&lt;/h1&gt;
+
+&lt;p&gt;The sketchnote above shows my general idea how I set up the Little Pi Bot. It is
+running on a Raspberry Pi, Version 2, which is connected to a AM2302 temperature
+and humidity sensor via GPIO pins.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/raspberry_pi_with_am2302.png&#34; alt=&#34;Photo of Raspberry Pi with AM2302&#34; /&gt;
+The other little module sitting next to the AM2302 on the GPIO pins is a
+Realtime Clock.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;d like to provide you with a little howto or tutorial and describe how
+you can set up your own Little Pi Bot when you have a running Raspberry Pi
+and plugged in your sensor to the GPIO pins.&lt;/p&gt;
+
+&lt;h1 id=&#34;install-the-adafruit-python-python-dht-library:9ba6166c31e88ffbafd8ff0da89f02eb&#34;&gt;Install the Adafruit Python Python DHT Library&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Update your linux and install some dependencies:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt update
+$ sudo apt install build-essential python-dev sqlite3
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Download the &lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_DHT&#34;&gt;library&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;install-the-python-telegram-bot-wrapper:9ba6166c31e88ffbafd8ff0da89f02eb&#34;&gt;Install the python-telegram-bot wrapper&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pip install python-telegram-bot --upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Or download it from &lt;a href=&#34;https://github.com/python-telegram-bot/&#34;&gt;GitHub&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/python-telegram-bot/python-telegram-bot
+$ cd python-telegram-bot
+$ python setup.py install
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;install-the-little-pi-bot-scripts:9ba6166c31e88ffbafd8ff0da89f02eb&#34;&gt;Install the Little Pi Bot scripts&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Clone it from my &lt;a href=&#34;https://github.com/bartschat/Little_Pi_Bot&#34;&gt;GitHub repo&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/bartschat/Little_Pi_Bot
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Move the systemd services script into the correct directory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo mv littlepibot.service /lib/systemd/system/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the script and adjust the directory&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adjust the file permission:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo chmod 644 /lib/systemd/system/littlepibot.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enable the service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl daemon-reload
+$ sudo systemctl enable littlepibot.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Create the sqlite3 database in a directory of your choice:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sqlite3 littlepibot.db
+CREATE TABLE sensor_data (tdate DATE, ttime TIME, temperature NUMERIC, humidity NUMERIC);
+.quit
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit littlepibot.py and sensor_read_db_write.py and make sure the database is correctly adressed in there.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In littlepibot.py enter your telegram user id into the list of admins to give you the right to restart your bot.
+If you don&amp;rsquo;t know your user id, just talk to the &lt;a href=&#34;https://telegram.me/userinfobot&#34;&gt;userinfobot&lt;/a&gt; on Telegram.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Edit the root user&amp;rsquo;s crontab for regular sensor data reads:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo crontab -e
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Insert a line like this (this example read sensor data every 5 minutes, adjust the path as necessary!):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*/5     *       *       *       *       /home/pi/devel/littlepibot/sensor_read_db_write.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Start the Bot:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl start littlepibot
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You should now be able to talk to your bot via Telegram and issue orders like /status or /set_interval.&lt;/p&gt;
+
+&lt;h1 id=&#34;links-and-ressources:9ba6166c31e88ffbafd8ff0da89f02eb&#34;&gt;Links and Ressources&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_DHT&#34;&gt;Python Library for the AM2302 from Adafruit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/python-telegram-bot/&#34;&gt;python-telegram-bot - wrapper for telegram API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://akizukidenshi.com/download/ds/aosong/AM2302.pdf&#34;&gt;AM2302 Datasheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.aosong.com/en/products/details.asp?id=117&#34;&gt;AM2302 Product Site&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;help-me-to-make-this-guide-better:9ba6166c31e88ffbafd8ff0da89f02eb&#34;&gt;Help me to make this guide better&lt;/h1&gt;
+
+&lt;p&gt;If you encounter any problems during the setup please leave a comment. And please
+be aware that this Bot is just a personal project for me to improve my coding and
+tinkering skills a little bit, so it will most likely be always incomplete. Currently
+I would like to add some parts to analyze the sensor data, so that the Bot can talk
+to you about that, but it is still a work in progress. :)&lt;/p&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Success Factors of Video Game Consoles - A Seminar Paper</title>
