@@ -6,8 +6,33 @@
     <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Mar 2017 20:49:49 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 07 Mar 2017 21:43:52 +0100</lastBuildDate>
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sketchnotes Digital Management</title>
+      <link>https://bartschat.github.io/post/Sketchnotes_Digital_Management/</link>
+      <pubDate>Tue, 07 Mar 2017 21:43:52 +0100</pubDate>
+      
+      <guid>https://bartschat.github.io/post/Sketchnotes_Digital_Management/</guid>
+      <description>
+
+&lt;p&gt;A small selection of the sketchnotes that I took during my last lectures in
+my &lt;a href=&#34;http://weiterbildung.uni-muenster.de/de/masterstudiengaenge/emba-marketing/marketingmba/&#34;&gt;MBA program in Münster&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;digital-management-current-state:905a49a87d024e0581ef59fe28d2197c&#34;&gt;Digital Management - Current state?&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Sketchnotes Digital Management.JPG&#34; alt=&#34;Sketchnote Digital Management&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;digital-management-implications:905a49a87d024e0581ef59fe28d2197c&#34;&gt;Digital Management - Implications?&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Sketchnotes Digital Management Implikationen.JPG&#34; alt=&#34;Sketchnote Digital Management Implikationen&#34; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;a-pinball-machine-as-the-new-marketing-paradigm:905a49a87d024e0581ef59fe28d2197c&#34;&gt;A pinball machine as the new marketing paradigm?&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Sketchnote_Pinball.jpg&#34; alt=&#34;Sketchnote Flippern als Marketing Paradigma&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My Little Pi Bot - a Telegram ChatBot in Python</title>
