@@ -23,7 +23,7 @@
 
 &lt;h1 id=&#34;code-with-comments:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Code with comments&lt;/h1&gt;
 
-&lt;h2 id=&#34;importing-of-modules:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Importing of modules:&lt;/h2&gt;
+&lt;h2 id=&#34;importing-of-modules:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Importing of modules&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;#! /usr/bin/python
 
@@ -38,17 +38,17 @@ import sqlite3
 from picamera import PiCamera
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;initialize-the-raspberry-pi-camera-module:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Initialize the Raspberry Pi camera module:&lt;/h2&gt;
+&lt;h2 id=&#34;initialize-the-raspberry-pi-camera-module:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Initialize the Raspberry Pi camera module&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;camera = PiCamera()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;set-the-list-of-administrators:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Set the list of administrators:&lt;/h2&gt;
+&lt;h2 id=&#34;set-the-list-of-administrators:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Set the list of administrators&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;LIST_OF_ADMINS = [1234567890]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;define-a-wrapper-to-restrict-access-for-specific-functions:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Define a wrapper to restrict access for specific functions:&lt;/h2&gt;
+&lt;h2 id=&#34;define-a-wrapper-to-restrict-access-for-specific-functions:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Define a wrapper to restrict access for specific functions&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;def restricted(func):
     @wraps(func)
@@ -74,7 +74,7 @@ from picamera import PiCamera
 return wrapped
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;the-restart-function-restricted-by-using-the-wrapper-defined-above:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;The /restart function (restricted by using the wrapper defined above):&lt;/h2&gt;
+&lt;h2 id=&#34;the-restart-function-restricted-by-using-the-wrapper-defined-above:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;The /restart function (restricted by using the wrapper defined above)&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;@restricted
 def restart(bot, update):
@@ -83,7 +83,7 @@ def restart(bot, update):
 os.execl(sys.executable, sys.executable, *sys.argv)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;start-help-and-hello-functions-for-basic-bot-interaction:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;/start, /help and /hello functions for basic bot interaction:&lt;/h2&gt;
+&lt;h2 id=&#34;start-help-and-hello-functions-for-basic-bot-interaction:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;/start, /help and /hello functions for basic bot interaction&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;def start(bot, update):
     update.message.reply_text(&#39;Hello there! If you need /help, just ask for it!&#39;)
@@ -103,7 +103,7 @@ def hello(bot, update):
 &#39;Hello {}&#39;.format(update.message.from_user.first_name))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;this-functions-performs-the-sensor-readouts-and-stores-the-values-in-an-sqlite3-database:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;This functions performs the sensor readouts and stores the values in an sqlite3 database:&lt;/h2&gt;
+&lt;h2 id=&#34;sensor-data-readout-and-storing-it-in-an-sqlite3-db:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Sensor data readout and storing it in an sqlite3 db&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;def current_sensor_data():
     conn = sqlite3.connect(&#39;/home/pi/devel/littlepibot/littlepibot.db&#39;)
@@ -119,9 +119,9 @@ def hello(bot, update):
 return{&#39;temperature&#39;:temperature, &#39;humidity&#39;:humidity, &#39;readout&#39;:readout}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;the-status-command-makes-the-bot-tell-you-the-last-sensor-values-and-the-return:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;The /status command makes the bot tell you the last sensor values and the return&lt;/h2&gt;
+&lt;h2 id=&#34;the-status-command:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;The /status command&lt;/h2&gt;
 
-&lt;p&gt;of the uptime command:&lt;/p&gt;
+&lt;p&gt;Making the bot tell you the last sensor values and the return of the uptime command:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;def status(bot, update):
     data = current_sensor_data()
@@ -136,9 +136,10 @@ update.message.reply_text(msg_text)
   logger.warning(&#39;Update &amp;quot;%s&amp;quot; caused error &amp;quot;%s&amp;quot;&#39; % (update, error))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;the-following-function-set-enables-the-bot-to-set-an-interval-in-which-the-last:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;The following function set enables the bot to set an interval, in which the last&lt;/h2&gt;
+&lt;h2 id=&#34;perform-regular-tasks-with-the-bot:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Perform regular tasks with the bot&lt;/h2&gt;
 
-&lt;p&gt;sensor readout is sent to the requesting Telegram user, e.g. /set_interval 300 will make
+&lt;p&gt;The following function set enables the bot to set an interval, in which the last
+sensor readout is sent to the requesting Telegram user, e.g. /set_interval 300 will make
 the bot tell you the last sensor readout every 5 minutes. /unset_interval will stop this.
 The send_data function is only used internally. Note: This function has to be changed
 so that the sensor values are taken from the database not from an actual readout.&lt;/p&gt;
@@ -176,9 +177,10 @@ def unset_interval(bot, update, chat_data):
   intervals = False
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;as-i-got-my-raspberry-pi-camera-module-finally-the-bot-is-now-able-to-react-to-a:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;As I got my Raspberry Pi camera module finally the bot is now able to react to a&lt;/h2&gt;
+&lt;h2 id=&#34;say-cheese-photo:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;Say cheese - /photo&lt;/h2&gt;
 
-&lt;p&gt;/photo request by snapping a picture with it and sending it:&lt;/p&gt;
+&lt;p&gt;As I got my Raspberry Pi camera module finally the bot is now able to react to a
+/photo request by snapping a picture with it and sending it:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;def photo(bot,update,chat_data):
     update.message.reply_text(&#39;What are you looking at?&#39;)
@@ -188,9 +190,10 @@ def unset_interval(bot, update, chat_data):
   bot.sendPhoto(chat_id = update.message.chat_id,photo=open(photo_path,&#39;rb&#39;))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;the-main-function-which-initializes-the-updater-with-the-bot-token-enables:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;The main() function, which Initializes the Updater with the Bot Token, enables&lt;/h2&gt;
+&lt;h2 id=&#34;main:9e1773d035ab7640c67d9c2a7f40e1d4&#34;&gt;main()&lt;/h2&gt;
 
-&lt;p&gt;the simple logging feature and adds the bot CommandHandlers before starting the
+&lt;p&gt;The main() function, which Initializes the Updater with the Bot Token, enables
+the simple logging feature and adds the bot CommandHandlers before starting the
 bot at the end:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;def main():

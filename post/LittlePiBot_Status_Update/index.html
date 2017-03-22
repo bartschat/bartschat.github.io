@@ -74,7 +74,7 @@
 
 <h1 id="code-with-comments:9e1773d035ab7640c67d9c2a7f40e1d4">Code with comments</h1>
 
-<h2 id="importing-of-modules:9e1773d035ab7640c67d9c2a7f40e1d4">Importing of modules:</h2>
+<h2 id="importing-of-modules:9e1773d035ab7640c67d9c2a7f40e1d4">Importing of modules</h2>
 
 <pre><code>#! /usr/bin/python
 
@@ -89,17 +89,17 @@ import sqlite3
 from picamera import PiCamera
 </code></pre>
 
-<h2 id="initialize-the-raspberry-pi-camera-module:9e1773d035ab7640c67d9c2a7f40e1d4">Initialize the Raspberry Pi camera module:</h2>
+<h2 id="initialize-the-raspberry-pi-camera-module:9e1773d035ab7640c67d9c2a7f40e1d4">Initialize the Raspberry Pi camera module</h2>
 
 <pre><code>camera = PiCamera()
 </code></pre>
 
-<h2 id="set-the-list-of-administrators:9e1773d035ab7640c67d9c2a7f40e1d4">Set the list of administrators:</h2>
+<h2 id="set-the-list-of-administrators:9e1773d035ab7640c67d9c2a7f40e1d4">Set the list of administrators</h2>
 
 <pre><code>LIST_OF_ADMINS = [1234567890]
 </code></pre>
 
-<h2 id="define-a-wrapper-to-restrict-access-for-specific-functions:9e1773d035ab7640c67d9c2a7f40e1d4">Define a wrapper to restrict access for specific functions:</h2>
+<h2 id="define-a-wrapper-to-restrict-access-for-specific-functions:9e1773d035ab7640c67d9c2a7f40e1d4">Define a wrapper to restrict access for specific functions</h2>
 
 <pre><code>def restricted(func):
     @wraps(func)
@@ -125,7 +125,7 @@ from picamera import PiCamera
 return wrapped
 </code></pre>
 
-<h2 id="the-restart-function-restricted-by-using-the-wrapper-defined-above:9e1773d035ab7640c67d9c2a7f40e1d4">The /restart function (restricted by using the wrapper defined above):</h2>
+<h2 id="the-restart-function-restricted-by-using-the-wrapper-defined-above:9e1773d035ab7640c67d9c2a7f40e1d4">The /restart function (restricted by using the wrapper defined above)</h2>
 
 <pre><code>@restricted
 def restart(bot, update):
@@ -134,7 +134,7 @@ def restart(bot, update):
 os.execl(sys.executable, sys.executable, *sys.argv)
 </code></pre>
 
-<h2 id="start-help-and-hello-functions-for-basic-bot-interaction:9e1773d035ab7640c67d9c2a7f40e1d4">/start, /help and /hello functions for basic bot interaction:</h2>
+<h2 id="start-help-and-hello-functions-for-basic-bot-interaction:9e1773d035ab7640c67d9c2a7f40e1d4">/start, /help and /hello functions for basic bot interaction</h2>
 
 <pre><code>def start(bot, update):
     update.message.reply_text('Hello there! If you need /help, just ask for it!')
@@ -154,7 +154,7 @@ def hello(bot, update):
 'Hello {}'.format(update.message.from_user.first_name))
 </code></pre>
 
-<h2 id="this-functions-performs-the-sensor-readouts-and-stores-the-values-in-an-sqlite3-database:9e1773d035ab7640c67d9c2a7f40e1d4">This functions performs the sensor readouts and stores the values in an sqlite3 database:</h2>
+<h2 id="sensor-data-readout-and-storing-it-in-an-sqlite3-db:9e1773d035ab7640c67d9c2a7f40e1d4">Sensor data readout and storing it in an sqlite3 db</h2>
 
 <pre><code>def current_sensor_data():
     conn = sqlite3.connect('/home/pi/devel/littlepibot/littlepibot.db')
@@ -170,9 +170,9 @@ def hello(bot, update):
 return{'temperature':temperature, 'humidity':humidity, 'readout':readout}
 </code></pre>
 
-<h2 id="the-status-command-makes-the-bot-tell-you-the-last-sensor-values-and-the-return:9e1773d035ab7640c67d9c2a7f40e1d4">The /status command makes the bot tell you the last sensor values and the return</h2>
+<h2 id="the-status-command:9e1773d035ab7640c67d9c2a7f40e1d4">The /status command</h2>
 
-<p>of the uptime command:</p>
+<p>Making the bot tell you the last sensor values and the return of the uptime command:</p>
 
 <pre><code>def status(bot, update):
     data = current_sensor_data()
@@ -187,9 +187,10 @@ update.message.reply_text(msg_text)
   logger.warning('Update &quot;%s&quot; caused error &quot;%s&quot;' % (update, error))
 </code></pre>
 
-<h2 id="the-following-function-set-enables-the-bot-to-set-an-interval-in-which-the-last:9e1773d035ab7640c67d9c2a7f40e1d4">The following function set enables the bot to set an interval, in which the last</h2>
+<h2 id="perform-regular-tasks-with-the-bot:9e1773d035ab7640c67d9c2a7f40e1d4">Perform regular tasks with the bot</h2>
 
-<p>sensor readout is sent to the requesting Telegram user, e.g. /set_interval 300 will make
+<p>The following function set enables the bot to set an interval, in which the last
+sensor readout is sent to the requesting Telegram user, e.g. /set_interval 300 will make
 the bot tell you the last sensor readout every 5 minutes. /unset_interval will stop this.
 The send_data function is only used internally. Note: This function has to be changed
 so that the sensor values are taken from the database not from an actual readout.</p>
@@ -227,9 +228,10 @@ def unset_interval(bot, update, chat_data):
   intervals = False
 </code></pre>
 
-<h2 id="as-i-got-my-raspberry-pi-camera-module-finally-the-bot-is-now-able-to-react-to-a:9e1773d035ab7640c67d9c2a7f40e1d4">As I got my Raspberry Pi camera module finally the bot is now able to react to a</h2>
+<h2 id="say-cheese-photo:9e1773d035ab7640c67d9c2a7f40e1d4">Say cheese - /photo</h2>
 
-<p>/photo request by snapping a picture with it and sending it:</p>
+<p>As I got my Raspberry Pi camera module finally the bot is now able to react to a
+/photo request by snapping a picture with it and sending it:</p>
 
 <pre><code>def photo(bot,update,chat_data):
     update.message.reply_text('What are you looking at?')
@@ -239,9 +241,10 @@ def unset_interval(bot, update, chat_data):
   bot.sendPhoto(chat_id = update.message.chat_id,photo=open(photo_path,'rb'))
 </code></pre>
 
-<h2 id="the-main-function-which-initializes-the-updater-with-the-bot-token-enables:9e1773d035ab7640c67d9c2a7f40e1d4">The main() function, which Initializes the Updater with the Bot Token, enables</h2>
+<h2 id="main:9e1773d035ab7640c67d9c2a7f40e1d4">main()</h2>
 
-<p>the simple logging feature and adds the bot CommandHandlers before starting the
+<p>The main() function, which Initializes the Updater with the Bot Token, enables
+the simple logging feature and adds the bot CommandHandlers before starting the
 bot at the end:</p>
 
 <pre><code>def main():
