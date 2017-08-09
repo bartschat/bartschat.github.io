@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Follow these nine steps to write beautiful academic paper with a Markdown/LaTeX combination &middot; Lars` github/Hugo powered blog</title>
+    <title>Follow these quick steps to write beautiful academic papers with a Markdown/LaTeX combination &middot; Lars` github/Hugo powered blog</title>
     <meta name="author" content="Lars Bartschat">
     <meta name="description" content="This place is full of stuff regarding studying, programming, working out and thingiebobs...">
     <meta name="generator" content="Hugo 0.16-DEV" />
@@ -61,12 +61,88 @@
     <main class="content" role="main">
 	    <article class="post">
 	        <header>
-	        <h1 class="post-title">Follow these nine steps to write beautiful academic paper with a Markdown/LaTeX combination</h1>
+	        <h1 class="post-title">Follow these quick steps to write beautiful academic papers with a Markdown/LaTeX combination</h1>
 	        <div class="post-meta"><time datetime="15 June 2017">15 June 2017</time></div>
 	        </header>
 
 	        <section class="post-content">
-	            
+	            <p>Download the <a href="/files/DummyPaper.7z">DummyPaper.7z</a> which contains the following files:</p>
+
+<ul>
+<li>compile.sh - the shell script that will use pandoc and LaTeX to put
+all markdown files together and create the PDF</li>
+<li>header.tex and footer.tex - they contain the LaTeX stuff that is
+necessary for the document creation</li>
+<li>config.tex - in this file you can set things like the title or the
+author
+*literature.bib - the references in the bibtex file format (I create
+these files with Mendeley, but Endnote or similar will work fine too)</li>
+<li>the *.md files - these are the files containing the content of the
+paper</li>
+</ul>
+
+<p>Quick setup guide:</p>
+
+<ul>
+<li>make sure all relevant software is installed</li>
+<li>unzip the files in a directory</li>
+<li>open a terminal window and navigate to that directory</li>
+<li>either make the compile.sh script executable (chmod u+x compile.sh)
+and run it as ./compile.sh</li>
+<li>or run bash ./compile.sh</li>
+</ul>
+
+<p>What happens:</p>
+
+<ul>
+<li>the first part of the script uses pandoc to create LaTeX files</li>
+<li>then all files will be concatened into the output.tex file</li>
+<li>pdflatex will compile the PDF file</li>
+<li>in the end some temporary tex files will be removed</li>
+</ul>
+
+<p>Basic workflow:</p>
+
+<ul>
+<li>edit content in the md files</li>
+<li>ensure all references are in the literature.bib file</li>
+
+<li><p>run compile.sh script</p></li>
+
+<li><p>make sure all relevant software is installed</p></li>
+
+<li><p>unzip the files in a
+directory</p></li>
+
+<li><p>open a terminal window and navigate to that directory
+*
+either make the compile.sh script executable (chmod u+x compile.sh) and
+run it as ./compile.sh</p></li>
+
+<li><p>or run bash ./compile.sh</p></li>
+</ul>
+
+<p>What happens:</p>
+
+<ul>
+<li>the first part of the script uses pandoc to create LaTeX files</li>
+<li>then all files will be concatened into the output.tex file</li>
+<li>pdflatex will compile the PDF file</li>
+<li>in the end some temporary tex files will be removed</li>
+</ul>
+
+<p>Extensions:</p>
+
+<ul>
+<li>initialize the directory a a git repository</li>
+<li>edit content</li>
+<li>run compile.sh with the push option, e.g. &ldquo;./compile.sh push&rdquo;, and the current state will be pushed as a new commit</li>
+</ul>
+
+<p>And that&rsquo;s it, really, there&rsquo;s nothing more to it. :)</p>
+
+<p>Cheers!</p>
+
 	        </section>
 
 	        <section class="post-tags" style="padding-bottom:60px;">
@@ -81,7 +157,7 @@
 <script type="text/javascript">
     var disqus_shortname = 'bartschat';
     var disqus_identifier = 'https:\/\/bartschat.github.io\/post\/Tutorial_Academic_Writing_Markdown_Latex\/';
-    var disqus_title = 'Follow these nine steps to write beautiful academic paper with a Markdown\/LaTeX combination';
+    var disqus_title = 'Follow these quick steps to write beautiful academic papers with a Markdown\/LaTeX combination';
     var disqus_url = 'https:\/\/bartschat.github.io\/post\/Tutorial_Academic_Writing_Markdown_Latex\/';
 
     (function() {
@@ -99,7 +175,7 @@
 	        <section class="share">
 	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
 	            <p class="info prompt">Share</p>
-	            <a href="http://twitter.com/share?text=Follow%20these%20nine%20steps%20to%20write%20beautiful%20academic%20paper%20with%20a%20Markdown%2fLaTeX%20combination&url=https%3a%2f%2fbartschat.github.io%2fpost%2fTutorial_Academic_Writing_Markdown_Latex%2f" title="Share on Twitter"
+	            <a href="http://twitter.com/share?text=Follow%20these%20quick%20steps%20to%20write%20beautiful%20academic%20papers%20with%20a%20Markdown%2fLaTeX%20combination&url=https%3a%2f%2fbartschat.github.io%2fpost%2fTutorial_Academic_Writing_Markdown_Latex%2f" title="Share on Twitter"
 	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
 	            </a>

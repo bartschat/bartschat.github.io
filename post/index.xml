@@ -10,12 +10,88 @@
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Follow these nine steps to write beautiful academic paper with a Markdown/LaTeX combination</title>
+      <title>Follow these quick steps to write beautiful academic papers with a Markdown/LaTeX combination</title>
       <link>https://bartschat.github.io/post/Tutorial_Academic_Writing_Markdown_Latex/</link>
       <pubDate>Thu, 15 Jun 2017 20:25:51 +0200</pubDate>
       
       <guid>https://bartschat.github.io/post/Tutorial_Academic_Writing_Markdown_Latex/</guid>
-      <description></description>
+      <description>&lt;p&gt;Download the &lt;a href=&#34;https://bartschat.github.io/files/DummyPaper.7z&#34;&gt;DummyPaper.7z&lt;/a&gt; which contains the following files:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;compile.sh - the shell script that will use pandoc and LaTeX to put
+all markdown files together and create the PDF&lt;/li&gt;
+&lt;li&gt;header.tex and footer.tex - they contain the LaTeX stuff that is
+necessary for the document creation&lt;/li&gt;
+&lt;li&gt;config.tex - in this file you can set things like the title or the
+author
+*literature.bib - the references in the bibtex file format (I create
+these files with Mendeley, but Endnote or similar will work fine too)&lt;/li&gt;
+&lt;li&gt;the *.md files - these are the files containing the content of the
+paper&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Quick setup guide:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;make sure all relevant software is installed&lt;/li&gt;
+&lt;li&gt;unzip the files in a directory&lt;/li&gt;
+&lt;li&gt;open a terminal window and navigate to that directory&lt;/li&gt;
+&lt;li&gt;either make the compile.sh script executable (chmod u+x compile.sh)
+and run it as ./compile.sh&lt;/li&gt;
+&lt;li&gt;or run bash ./compile.sh&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What happens:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the first part of the script uses pandoc to create LaTeX files&lt;/li&gt;
+&lt;li&gt;then all files will be concatened into the output.tex file&lt;/li&gt;
+&lt;li&gt;pdflatex will compile the PDF file&lt;/li&gt;
+&lt;li&gt;in the end some temporary tex files will be removed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Basic workflow:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;edit content in the md files&lt;/li&gt;
+&lt;li&gt;ensure all references are in the literature.bib file&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;run compile.sh script&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;make sure all relevant software is installed&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;unzip the files in a
+directory&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;open a terminal window and navigate to that directory
+*
+either make the compile.sh script executable (chmod u+x compile.sh) and
+run it as ./compile.sh&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;or run bash ./compile.sh&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What happens:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the first part of the script uses pandoc to create LaTeX files&lt;/li&gt;
+&lt;li&gt;then all files will be concatened into the output.tex file&lt;/li&gt;
+&lt;li&gt;pdflatex will compile the PDF file&lt;/li&gt;
+&lt;li&gt;in the end some temporary tex files will be removed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Extensions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;initialize the directory a a git repository&lt;/li&gt;
+&lt;li&gt;edit content&lt;/li&gt;
+&lt;li&gt;run compile.sh with the push option, e.g. &amp;ldquo;./compile.sh push&amp;rdquo;, and the current state will be pushed as a new commit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And that&amp;rsquo;s it, really, there&amp;rsquo;s nothing more to it. :)&lt;/p&gt;
+
+&lt;p&gt;Cheers!&lt;/p&gt;
+</description>
     </item>
     
     <item>
