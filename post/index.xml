@@ -15,7 +15,9 @@
       <pubDate>Thu, 15 Jun 2017 20:25:51 +0200</pubDate>
       
       <guid>https://bartschat.github.io/post/Tutorial_Academic_Writing_Markdown_Latex/</guid>
-      <description>&lt;p&gt;Download the &lt;a href=&#34;https://bartschat.github.io/files/DummyPaper.7z&#34;&gt;DummyPaper.7z&lt;/a&gt; which contains the following files:&lt;/p&gt;
+      <description>&lt;p&gt;&lt;em&gt;Warning:&lt;/em&gt; This post is basically an extract from an email conversation I had with one of my readers, Scott. Please read this post first: &lt;a href=&#34;https://bartschat.github.io/post/thesis_workflow/&#34;&gt;Thesis Workflow&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Download the &lt;a href=&#34;https://bartschat.github.io/files/DummyPaper.7z&#34;&gt;DummyPaper.7z&lt;/a&gt; which contains the following files:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;compile.sh - the shell script that will use pandoc and LaTeX to put
