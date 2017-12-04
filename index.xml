@@ -6,8 +6,18 @@
     <description>Recent content on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Dec 2017 09:57:05 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 04 Dec 2017 18:09:28 +0100</lastBuildDate>
     <atom:link href="https://bartschat.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Master&#39;s Thesis - Finally done!</title>
+      <link>https://bartschat.github.io/post/Masters_Thesis_finally_done/</link>
+      <pubDate>Mon, 04 Dec 2017 18:09:28 +0100</pubDate>
+      
+      <guid>https://bartschat.github.io/post/Masters_Thesis_finally_done/</guid>
+      <description>&lt;p&gt;I did it and finished my master&amp;rsquo;s thesis today! &lt;img src=&#34;https://bartschat.github.io/img/masters_thesis_title.png&#34; alt=&#34;Title of Lars&#39; Master&#39;s Thesis: Video Games - Motives and Barriers&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Sketchnote: The SERVQUAL Gaps Model - Deep Acting vs Surface Acting</title>
@@ -899,114 +909,6 @@ UI or just use the CLI as usual if you are into that.&lt;/p&gt;
 
 &lt;p&gt;Enter the correct password or make sure you have the needed ssh keys available and you are ready to
 access your Dropbox in the mount target folder.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Automated embedding of tables from CSV files and creating nice looking graphs in your MarkDown/LaTeX papers</title>
-      <link>https://bartschat.github.io/post/auto_embedding_tables_and_graphs_in_md_latex/</link>
-      <pubDate>Wed, 14 Sep 2016 17:53:34 +0200</pubDate>
-      
-      <guid>https://bartschat.github.io/post/auto_embedding_tables_and_graphs_in_md_latex/</guid>
-      <description>
-
-&lt;p&gt;Generally speaking I think, that there is no need to explain why we want to embed tables and graphs in our academic papers, it´s our daily bread as students, Ph.D. candidates and so on. There are always data waiting to be analyzed and displayed in a way that is a) good looking and b) clearly arranged to foster readability and easy of understanding.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-we-re-looking-to-create:04e9607b59a5c60239b3a2518f819660&#34;&gt;What we´re looking to create&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/tables.png&#34; alt=&#34;Auto-generated table&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/graphs.png&#34; alt=&#34;Auto-generated graph&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;prerequisites:04e9607b59a5c60239b3a2518f819660&#34;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;p&gt;This description is based on my thesis workflow that I describe in detail in another article here on my blog: &lt;a href=&#34;https://bartschat.github.io/post/thesis_workflow/&#34;&gt;My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-table-from-a-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;Create a table from a *.CSV&lt;/h2&gt;
-
-&lt;p&gt;We are working under the assumption that your data is available in one or more plain text ASCII *.csv file(s) in the root directory of your paper, maybe looking something like this simple example:&lt;/p&gt;
-
-&lt;h3 id=&#34;geekbench-apple-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;geekbench_apple.csv&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;Product Release Score
-iPhone 6s plus  2015    4341
-iPhone 6s   2015    4331
-iPhone 6 plus   2014    2883
-iPhone 6    2014    2877
-iPhone 5s   2013    2510
-iPhone 5    2012    1271
-iPhone 4s   2011    404
-iPhone 4    2010    206
-iPhone 3gs  2009    149
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;geekbench-samsung-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;geekbench_samsung.csv&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;Product,Release,Score
-{},{},{}
-Samsung Galaxy S,2010,262
-Samsung Galaxy S II,2011,481
-Samsung Galaxy S III,2012,1285
-Samsung Galaxy S 4,2013,2676
-Samsung Galaxy S 5,2014,2805
-Samsung Galaxy S 6 ,2015,4262
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This data is a small collection of the geekbench scores of some mobile handsets. Geekbench is a benchmarking tool for a diverse set of computing platforms and owned by &lt;a href=&#34;http://www.primatelabs.com/&#34;&gt;Primate Labs&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;To import the data and generate a simple table we make use of the LaTeX package &amp;ldquo;csv_simple&amp;rdquo;. It is included in our &amp;ldquo;header.tex&amp;rdquo; file that is part of the beforementioned workflow:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\usepackage{csvsimple}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now all we have to do is to import the two *.csv files in our MarkDown file:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\begin{center}
-    \csvautotabular{geekbench_apple.csv}
-    \csvautotabular{geekbench_samsung.csv}
-\end{center}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The result:
-&lt;img src=&#34;https://bartschat.github.io/img/tables.png&#34; alt=&#34;Auto-generated table&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;create-a-graph-from-a-csv:04e9607b59a5c60239b3a2518f819660&#34;&gt;Create a graph from a *.CSV&lt;/h2&gt;
-
-&lt;p&gt;The next step is to visualize the data, because looking at tables is usually a little bit tiring honestly. Creating a graph is a little bit more complex that just building some bland tables, so there will a little bit more LaTeX code in our MarkDown file:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\begin{figure}
-\begin{tikzpicture} 
-       \begin{axis} 
-        [
-                width=\linewidth*.9, % Scale the plot to \linewidth
-                grid=major, 
-                grid style={dashed,gray!30},
-                xlabel=Release, % Set the labels
-                ylabel=Geekbench Score,
-                %x unit=\si{\volt}, % Set the respective units
-                %y unit=\si{\ampere},
-                legend pos = north west,
-                x tick label style = {rotate = 90, anchor=east, /pgf/number format/1000 sep= },
-                y tick label style = {/pgf/number format/1000 sep= },
-                xtick distance = 1,
-                minor x tick num = 1,
-                ymin = 0, xmin = 2009,
-                ymax = 4500, xmax = 2016,
-                legend entries = {$Apple$, $Samsung$},
-            ]
-            \addplot table [col sep=comma, x = Release, y = Score]{geekbench_apple.csv}; 
-            \addplot table [col sep=comma, x = Release, y = Score]{geekbench_samsung.csv}; 
-        \end{axis} 
-     \end{tikzpicture}
-    \caption{Entwicklung der Leistungsfähigkeit von Smartphones Quelle: Eigene Darstellung, Daten: Primate Labs}
-    \label{abb:geekbench}
-\end{figure} 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;On the first look, all of this magical code seems confusing, but it´s more or less self explaining. We start with the creation of a LaTeX &lt;em&gt;figure&lt;/em&gt; and a &lt;em&gt;tikzpicture&lt;/em&gt;, which is basically the container which will be filled with the graph. The graph itself is the &lt;em&gt;axis&lt;/em&gt; environment, in which the graph is set up, labelled and the legend created. With the &lt;em&gt;addplot&lt;/em&gt; command the according *.csv files will be parsed and the graph will be &amp;ldquo;painted&amp;rdquo; in LaTeX. The whole process is finished nicely with a fitting &lt;em&gt;caption&lt;/em&gt; and a &lt;em&gt;label&lt;/em&gt; so we can make references in the text blocks to the graph.&lt;/p&gt;
-
-&lt;p&gt;The result:
-&lt;img src=&#34;https://bartschat.github.io/img/graphs.png&#34; alt=&#34;Auto-generated table&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
