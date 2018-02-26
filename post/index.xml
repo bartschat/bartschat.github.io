@@ -6,8 +6,18 @@
     <description>Recent content in Posts on Lars` github/Hugo powered blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Feb 2018 16:26:49 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2018 16:33:27 +0100</lastBuildDate>
     <atom:link href="https://bartschat.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>From the Sketchbok: The Art of Innovation</title>
+      <link>https://bartschat.github.io/post/the_art_of_innovation/</link>
+      <pubDate>Mon, 26 Feb 2018 16:33:27 +0100</pubDate>
+      
+      <guid>https://bartschat.github.io/post/the_art_of_innovation/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/art_of_innovation.jpg&#34; alt=&#34;Sketchnote of The Art of Innovation by Guy Kawasaki&#34; /&gt;&amp;ldquo;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Sketchnote: Nivea Brand Positioning</title>
@@ -792,90 +802,6 @@ I would like to add some parts to analyze the sensor data, so that the Bot can t
 to you about that, but it is still a work in progress. :)&lt;/p&gt;
 
 &lt;p&gt;Cheers!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Success Factors of Video Game Consoles - A Seminar Paper</title>
-      <link>https://bartschat.github.io/post/Seminar_Paper_Success_Factors_of_Video_Game_Consoles_Sketchnotes_Presentation/</link>
-      <pubDate>Tue, 21 Feb 2017 17:46:55 +0100</pubDate>
-      
-      <guid>https://bartschat.github.io/post/Seminar_Paper_Success_Factors_of_Video_Game_Consoles_Sketchnotes_Presentation/</guid>
-      <description>
-
-&lt;h2 id=&#34;introduction-taken-from-the-final-paper:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Introduction taken from the final paper&lt;/h2&gt;
-
-&lt;p&gt;This seminar paper aims to fill this gap and provide a comprehensive, conceptual framework
-to answer the question: “Which ingredients turn a video game console into a
-successful platform for a specific target group?” To create this framework I will first
-lay out the foundations by introducing the gaming industry’s main characteristics, i.e.
-that it is a two-sided, hedonic market catering to different gamer personae as its target
-audience and experiences a regular soft reset every five to seven years with the
-introduction of a new console generation.[Gallagher and Park, 2002]&lt;/p&gt;
-
-&lt;p&gt;I will then use the framework provided by [Hennig-Thurau and Marchand, 2013] as a
-starting point and expand it to establish a holistic picture of a video game platform
- using the current state of scientific research. To conclude this paper I will
-apply the framework onto the the “console war” of the seventh console generation and
-discuss its limitations and highlight necessary future research.&lt;/p&gt;
-
-&lt;h2 id=&#34;snapshots-from-the-development-phase:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Snapshots from the development phase&lt;/h2&gt;
-
-&lt;h3 id=&#34;framework-development-with-sheets-of-paper-on-the-floor:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Framework development with sheets of paper on the floor&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Framework_Development_Paper_on_Floor.jpg&#34; alt=&#34;Framework development with sheets of paper on the floor&#34; /&gt;
-Physical elements that can be touched and pushed around proved very helpful
-during the design process of the framework. Paper cards with icons sketched on
-them are easy to create and can be used to visualize complex structures.&lt;/p&gt;
-
-&lt;h3 id=&#34;final-framework-as-published-in-the-paper:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Final framework as published in the paper&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Framework.png&#34; alt=&#34;Final framework as published in the paper&#34; /&gt;
-The final version of the framework that made it into the actual seminar paper
-looks a lot sleeker that the draft made out of the paper cards but nevertheless
-it is just a fancy remake.&lt;/p&gt;
-
-&lt;p&gt;The article &lt;a href=&#34;https://bartschat.github.io/post/thesis_workflow/&#34;&gt;&amp;ldquo;My thesis workflow - Academic writing with a Markdown/LaTeX/Bibtex combination on OSX&amp;rdquo;&lt;/a&gt;
-explains how Markdown and LaTeX are combined to generate the PDF version of the paper.&lt;/p&gt;
-
-&lt;h3 id=&#34;sketchnote-of-the-presentation:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Sketchnote of the presentation&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Framework_Development_Sketchnote.jpg&#34; alt=&#34;Sketchnote of the presentation development&#34; /&gt;
-After handing in the paper with the &lt;a href=&#34;http://www.marketingcenter.de/lmm/&#34;&gt;Department of Marketing &amp;amp; Media Research&lt;/a&gt;
-I had to prepare a presentation of the paper&amp;rsquo;s main topics. My first idea was to
-develop the framework &amp;ldquo;live&amp;rdquo; on a flipchart while giving the talk but after some
-early experiments decided against that option because my live sketching abilities
-are not on the required skill level.&lt;/p&gt;
-
-&lt;p&gt;The second option was to prepare a &amp;ldquo;classic&amp;rdquo; slideshow. But as I developed the slides
-with the help of a technique called &lt;a href=&#34;https://www.youtube.com/results?search_query=sketchnotes&#34;&gt;&amp;ldquo;sketchnoting&amp;rdquo;&lt;/a&gt;
-my sketchnotes turned into some kind of presentation on their own. So I just
-polished them a little bit and put them together in a nice sequence. The notes
-were created using the app &lt;a href=&#34;http://tayasui.com/sketches/&#34;&gt;&amp;ldquo;Sketches&amp;rdquo;&lt;/a&gt; on the iPad,
-uploaded to my Dropbox, then edited with &lt;a href=&#34;https://www.gimp.org/&#34;&gt;the GIMP&lt;/a&gt; and
-finally put together with &lt;a href=&#34;https://www.libreoffice.org/discover/impress/&#34;&gt;Libre Office&amp;rsquo;s Impress&lt;/a&gt;.
-&lt;img src=&#34;https://bartschat.github.io/img/Framework_Presentation.png&#34; alt=&#34;Framework in the final presentation&#34; /&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;ressources:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Ressources&lt;/h1&gt;
-
-&lt;h2 id=&#34;downloads:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Downloads&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://bartschat.github.io/img/Seminar_Paper_Title.png&#34; alt=&#34;Final title page of the seminar paper&#34; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/bartschat/Seminar_Paper_MEP_XI/blob/master/Seminar_Paper_Lars_Bartschat_MEP_XI_20161125.pdf&#34;&gt;Download the Seminar Paper &amp;ldquo;Success Factors of Video Game Consoles&amp;rdquo; as PDF&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/bartschat/Seminar_Paper_MEP_XI/blob/master/Seminar_Paper_Lars_Bartschat_MEP_XI_20161125.tex&#34;&gt;Download the LaTeX source file of the Seminar Paper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/bartschat/Seminar_Paper_MEP_XI/blob/master/Seminar%20Paper%20Lars%20Bartschat%20Presentation%20Feb%2016.pdf&#34;&gt;Download the presentation as PDF&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/bartschat/Seminar_Paper_MEP_XI/blob/master/Seminar%20Paper%20Lars%20Bartschat%20Presentation%20Feb%2016.odp&#34;&gt;Download the presentation as ODP&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;links:bd51fef462402e97e879b5537fe7dc3a&#34;&gt;Links&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.marketingcenter.de/lmm/&#34;&gt;Website of the Department of Marketing &amp;amp; Media Research&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.facebook.com/thorsten.hennigthurau&#34;&gt;Facebook page of Prof. Hennig-Thurau&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://weiterbildung.uni-muenster.de/de/masterstudiengaenge/emba-marketing/marketingmba/&#34;&gt;Website of the WWU Weiterbildung GmbH&amp;rsquo;s MBA program (german)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
