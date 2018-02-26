@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>My Little Pi Bot - a Telegram ChatBot in Python &middot; Lars` github/Hugo powered blog</title>
+    <title>Sketchnote: Nivea Brand Positioning &middot; Lars` github/Hugo powered blog</title>
     <meta name="author" content="Lars Bartschat">
     <meta name="description" content="This place is full of stuff regarding studying, programming, working out and thingiebobs...">
     <meta name="generator" content="Hugo 0.16-DEV" />
@@ -61,136 +61,12 @@
     <main class="content" role="main">
 	    <article class="post">
 	        <header>
-	        <h1 class="post-title">My Little Pi Bot - a Telegram ChatBot in Python</h1>
-	        <div class="post-meta"><time datetime="02 March 2017">02 March 2017</time></div>
+	        <h1 class="post-title">Sketchnote: Nivea Brand Positioning</h1>
+	        <div class="post-meta"><time datetime="26 February 2018">26 February 2018</time></div>
 	        </header>
 
 	        <section class="post-content">
-	            
-
-<p><img src="/img/littlepibot.png" alt="Sketchnote of Little Pi Bot's layout" /></p>
-
-<h1 id="general-idea-layout:9ba6166c31e88ffbafd8ff0da89f02eb">General idea/layout</h1>
-
-<p>The sketchnote above shows my general idea how I set up the Little Pi Bot. It is
-running on a Raspberry Pi, Version 2, which is connected to a AM2302 temperature
-and humidity sensor via GPIO pins.</p>
-
-<p><img src="/img/raspberry_pi_with_am2302.png" alt="Photo of Raspberry Pi with AM2302" />
-The other little module sitting next to the AM2302 on the GPIO pins is a
-Realtime Clock.</p>
-
-<p>I&rsquo;d like to provide you with a little howto or tutorial and describe how
-you can set up your own Little Pi Bot when you have a running Raspberry Pi
-and plugged in your sensor to the GPIO pins.</p>
-
-<h1 id="install-the-adafruit-python-python-dht-library:9ba6166c31e88ffbafd8ff0da89f02eb">Install the Adafruit Python Python DHT Library</h1>
-
-<ul>
-<li><p>Update your linux and install some dependencies:</p>
-
-<pre><code>$ sudo apt update
-$ sudo apt install build-essential python-dev sqlite3
-</code></pre></li>
-
-<li><p>Download the <a href="https://github.com/adafruit/Adafruit_Python_DHT">library</a></p></li>
-
-<li><p>Run:</p>
-
-<pre><code>$ sudo python setup.py install
-</code></pre></li>
-</ul>
-
-<h1 id="install-the-python-telegram-bot-wrapper:9ba6166c31e88ffbafd8ff0da89f02eb">Install the python-telegram-bot wrapper</h1>
-
-<ul>
-<li><p>Run:</p>
-
-<pre><code>$ pip install python-telegram-bot --upgrade
-</code></pre></li>
-
-<li><p>Or download it from <a href="https://github.com/python-telegram-bot/">GitHub</a>:</p>
-
-<pre><code>$ git clone https://github.com/python-telegram-bot/python-telegram-bot
-$ cd python-telegram-bot
-$ python setup.py install
-</code></pre></li>
-</ul>
-
-<h1 id="install-the-little-pi-bot-scripts:9ba6166c31e88ffbafd8ff0da89f02eb">Install the Little Pi Bot scripts</h1>
-
-<ul>
-<li><p>Clone it from my <a href="https://github.com/bartschat/Little_Pi_Bot">GitHub repo</a>:</p>
-
-<pre><code>$ git clone https://github.com/bartschat/Little_Pi_Bot
-</code></pre></li>
-
-<li><p>Move the systemd services script into the correct directory:</p>
-
-<pre><code>$ sudo mv littlepibot.service /lib/systemd/system/
-</code></pre></li>
-
-<li><p>Edit the script and adjust the directory</p></li>
-
-<li><p>Adjust the file permission:</p>
-
-<pre><code>$ sudo chmod 644 /lib/systemd/system/littlepibot.service
-</code></pre></li>
-
-<li><p>Enable the service:</p>
-
-<pre><code>$ sudo systemctl daemon-reload
-$ sudo systemctl enable littlepibot.service
-</code></pre></li>
-
-<li><p>Create the sqlite3 database in a directory of your choice:</p>
-
-<pre><code>$ sqlite3 littlepibot.db
-CREATE TABLE sensor_data (tdate DATE, ttime TIME, temperature NUMERIC, humidity NUMERIC);
-.quit
-</code></pre></li>
-
-<li><p>Edit littlepibot.py and sensor_read_db_write.py and make sure the database is correctly adressed in there.</p></li>
-
-<li><p>In littlepibot.py enter your telegram user id into the list of admins to give you the right to restart your bot.
-If you don&rsquo;t know your user id, just talk to the <a href="https://telegram.me/userinfobot">userinfobot</a> on Telegram.</p></li>
-
-<li><p>Edit the root user&rsquo;s crontab for regular sensor data reads:</p>
-
-<pre><code>$ sudo crontab -e
-</code></pre></li>
-
-<li><p>Insert a line like this (this example read sensor data every 5 minutes, adjust the path as necessary!):</p>
-
-<pre><code>*/5     *       *       *       *       /home/pi/devel/littlepibot/sensor_read_db_write.py
-</code></pre></li>
-
-<li><p>Start the Bot:</p>
-
-<pre><code>$ sudo systemctl start littlepibot
-</code></pre></li>
-</ul>
-
-<p>You should now be able to talk to your bot via Telegram and issue orders like /status or /set_interval.</p>
-
-<h1 id="links-and-ressources:9ba6166c31e88ffbafd8ff0da89f02eb">Links and Ressources</h1>
-
-<ul>
-<li><a href="https://github.com/adafruit/Adafruit_Python_DHT">Python Library for the AM2302 from Adafruit</a></li>
-<li><a href="https://github.com/python-telegram-bot/">python-telegram-bot - wrapper for telegram API</a></li>
-<li><a href="http://akizukidenshi.com/download/ds/aosong/AM2302.pdf">AM2302 Datasheet</a></li>
-<li><a href="http://www.aosong.com/en/products/details.asp?id=117">AM2302 Product Site</a></li>
-</ul>
-
-<h1 id="help-me-to-make-this-guide-better:9ba6166c31e88ffbafd8ff0da89f02eb">Help me to make this guide better</h1>
-
-<p>If you encounter any problems during the setup please leave a comment. And please
-be aware that this Bot is just a personal project for me to improve my coding and
-tinkering skills a little bit, so it will most likely be always incomplete. Currently
-I would like to add some parts to analyze the sensor data, so that the Bot can talk
-to you about that, but it is still a work in progress. :)</p>
-
-<p>Cheers!</p>
+	            <p><img src="/img/Nivea.jpg" alt="Sketchnote of Nivea's Brand Positioning Strategy" /></p>
 
 	        </section>
 
@@ -205,9 +81,9 @@ to you about that, but it is still a work in progress. :)</p>
 	        	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'bartschat';
-    var disqus_identifier = 'https:\/\/bartschat.github.io\/post\/littlepibot_telegram_chatbot_python\/';
-    var disqus_title = 'My Little Pi Bot - a Telegram ChatBot in Python';
-    var disqus_url = 'https:\/\/bartschat.github.io\/post\/littlepibot_telegram_chatbot_python\/';
+    var disqus_identifier = 'https:\/\/bartschat.github.io\/post\/Nivea_Brand_Positioning\/';
+    var disqus_title = 'Sketchnote: Nivea Brand Positioning';
+    var disqus_url = 'https:\/\/bartschat.github.io\/post\/Nivea_Brand_Positioning\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -224,15 +100,15 @@ to you about that, but it is still a work in progress. :)</p>
 	        <section class="share">
 	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
 	            <p class="info prompt">Share</p>
-	            <a href="http://twitter.com/share?text=My%20Little%20Pi%20Bot%20-%20a%20Telegram%20ChatBot%20in%20Python&url=https%3a%2f%2fbartschat.github.io%2fpost%2flittlepibot_telegram_chatbot_python%2f" title="Share on Twitter"
+	            <a href="http://twitter.com/share?text=Sketchnote%3a%20Nivea%20Brand%20Positioning&url=https%3a%2f%2fbartschat.github.io%2fpost%2fNivea_Brand_Positioning%2f" title="Share on Twitter"
 	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
 	            </a>
-	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbartschat.github.io%2fpost%2flittlepibot_telegram_chatbot_python%2f" title="Share on Facebook"
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbartschat.github.io%2fpost%2fNivea_Brand_Positioning%2f" title="Share on Facebook"
 	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
 	            </a>
-	            <a href="https://plus.google.com/share?url=https%3a%2f%2fbartschat.github.io%2fpost%2flittlepibot_telegram_chatbot_python%2f" title="Share on Google+"
+	            <a href="https://plus.google.com/share?url=https%3a%2f%2fbartschat.github.io%2fpost%2fNivea_Brand_Positioning%2f" title="Share on Google+"
 	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
 	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
 	            </a>
